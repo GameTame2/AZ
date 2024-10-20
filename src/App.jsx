@@ -1,6 +1,4 @@
-
-import './App.css';
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
 
 function App() {
@@ -21,9 +19,22 @@ function App() {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
-    setDots([...dots, { x, y }]); // Store the new dot coordinates
-    drawDot(x, y); // Draw the dot immediately
+
+    const newDot = { x, y };
+    setDots((prevDots) => [...prevDots, newDot]); // Store the new dot coordinates
+  };
+
+  // Redraw all dots
+  const redrawDots = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+    const background = new Image();
+    background.src = image;
+    background.onload = () => {
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height); // Redraw the background image
+      dots.forEach(dot => drawDot(dot.x, dot.y)); // Redraw each dot
+    };
   };
 
   // Draw a dot on the canvas
@@ -34,6 +45,18 @@ function App() {
     ctx.arc(x, y, 5, 0, 2 * Math.PI); // Draw a small circle
     ctx.fillStyle = "red";
     ctx.fill();
+  };
+
+  // UseEffect to redraw dots whenever the dot list changes
+  useEffect(() => {
+    if (image) {
+      redrawDots();
+    }
+  }, [dots, image]);
+
+  // Undo the last placed dot
+  const undoLastDot = () => {
+    setDots((prevDots) => prevDots.slice(0, -1)); // Remove the last dot from the list
   };
 
   // Send dot coordinates to the back end
@@ -60,7 +83,10 @@ function App() {
             onClick={handleCanvasClick}
             style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover' }}
           />
-          <button onClick={sendCoordinates}>Send Coordinates</button>
+          <div>
+            <button onClick={undoLastDot}>Undo Last Dot</button>
+            <button onClick={sendCoordinates}>Send Coordinates</button>
+          </div>
         </div>
       )}
     </div>
