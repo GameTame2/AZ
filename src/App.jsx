@@ -93,4 +93,4 @@ function App() {
   );
 }
 
-export default App;//peikova e krazy
+export default App;
