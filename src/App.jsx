@@ -6,7 +6,9 @@ import Second from './Second.jsx';
 function App() {
 
   return(
+    <>
     <Second />
+    </>
   );
 }
 
