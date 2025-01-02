@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import vision from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3';
-import './CameraQuestions.css';
+import './App.css';
 
 function CameraQuestions () {
   const { FaceLandmarker, FilesetResolver } = vision;
@@ -11,7 +11,7 @@ function CameraQuestions () {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  const videoWidth = 420;
+  const videoWidth = 660;
 
   // Create FaceLandmarker function inside useEffect
   useEffect(() => {
@@ -148,19 +148,20 @@ function CameraQuestions () {
       } else {
         console.log("imash tqsno lice");
       }
+
+      
     }
   }, [faceLandmarker]);
 
   return (
-    <div>
+    <div className="face-qs">
       <h1>Face Detection with Selected Points</h1>
-      <section>
+      <section className="video">
         <div>
-          <button onClick={measureFace}>Measure</button>
           <div style={{ position: 'relative' }}>
             <video
               ref={videoRef}
-              style={{ position: 'absolute' }}
+              style={{ position: 'relative' }}
               autoPlay
               playsInline
             />
@@ -169,6 +170,7 @@ function CameraQuestions () {
               style={{ position: 'absolute', left: 0, top: 0 }}
             />
           </div>
+          <a id="video-button" onClick={measureFace}>Measure</a>
         </div>
       </section>
     </div>
