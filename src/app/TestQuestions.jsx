@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 //
-function App() {
+function TestQuestions() {
   // State to store answers for each question
   const [answers, setAnswers] = useState({
     question3: '',
-    question7: '',
     question8: '',
     question9: '',
     question14: '',
@@ -62,10 +61,11 @@ function App() {
 
   return (
     <div>
+
       <h1>Quiz</h1>
-      <form onSubmit={handleSubmit}>
-        {/* Question 3 */}
-        <div>
+
+      <form onSubmit={handleSubmit} className="quiz-grid">
+        <div id="quiz-box-3" className="quiz-box">
           <p>Question 1: Тъмна или светла коса.</p>
           <label>
             <input
@@ -99,43 +99,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
-          <p>Question 2: Висок или нисък череп?</p>
-          <label>
-            <input
-              type="radio"
-              name="question7"
-              value="a"
-              checked={answers.question7 === 'a'}
-              onChange={() => handleAnswerChange('question7', 'a')}
-            />
-            a. висок
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="question7"
-              value="b"
-              checked={answers.question7 === 'b'}
-              onChange={() => handleAnswerChange('question7', 'b')}
-            />
-            b. среден
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="question7"
-              value="c"
-              checked={answers.question7 === 'c'}
-              onChange={() => handleAnswerChange('question7', 'c')}
-            />
-            c. нисък
-          </label>
-        </div>
-
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-8" className="quiz-box">
           <p>Question 3: Плосък или изпъкнал тил?</p>
           <label>
             <input
@@ -169,8 +133,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-9" className="quiz-box">
           <p>Question 4: Трапчинка на тила?</p>
           <label>
             <input
@@ -204,8 +167,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-14" className="quiz-box">
           <p>Question 5: Право или скосено слепоочие?</p>
           <label>
             <input
@@ -238,8 +200,8 @@ function App() {
             c. скосено
           </label>
         </div>
-        {/* Question 3 */}
-        <div>
+
+        <div id="quiz-box-20" className="quiz-box">
           <p>Question 1: Червендалесто или млечно лице?</p>
           <label>
             <input
@@ -273,8 +235,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-33" className="quiz-box">
           <p>Question 2: Гладки или издадени скули?</p>
           <label>
             <input
@@ -308,8 +269,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-34" className="quiz-box">
           <p>Question 3: Тъп или прав ъгъл на челюстта?</p>
           <label>
             <input
@@ -343,8 +303,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-36" className="quiz-box">
           <p>Question 4: Изпъкнало или гладко надвеждие?</p>
           <label>
             <input
@@ -378,8 +337,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-38" className="quiz-box">
           <p>Question 5: Прави или дъгообразни вежди?</p>
           <label>
             <input
@@ -412,8 +370,13 @@ function App() {
             c. дъгообразни
           </label>
         </div>
-                {/* Question 3 */}
-                <div>
+
+        {/* Submit Button */}
+        <button type="submit">Submit</button>
+      </form>
+
+      <form onSubmit={handleSubmit}>
+      <div id="quiz-box-44" className="quiz-box">
           <p>Question 1: Широки или тесни вежди.</p>
           <label>
             <input
@@ -447,8 +410,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-56" className="quiz-box">
           <p>Question 2: Тънки или дебели ресници?</p>
           <label>
             <input
@@ -482,8 +444,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-58" className="quiz-box">
           <p>Question 3: Прикрита или виждаща се гънка на горния клепач?</p>
           <label>
             <input
@@ -517,8 +478,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-62" className="quiz-box">
           <p>Question 4: Висока или ниска основа на носа?</p>
           <label>
             <input
@@ -552,8 +512,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-64" className="quiz-box">
           <p>Question 5: Основа на носа - с или без вдлъбнатина?</p>
           <label>
             <input
@@ -586,8 +545,8 @@ function App() {
             c. без вдлъбнатина
           </label>
         </div>
-        {/* Question 3 */}
-        <div>
+        
+        <div id="quiz-box-66" className="quiz-box">
           <p>Question 1: Липсващ или изразен ъгъл между челото и носа?</p>
           <label>
             <input
@@ -621,8 +580,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-77" className="quiz-box">
           <p>Question 2: С или без извивка на гърбицата на носа?</p>
           <label>
             <input
@@ -655,9 +613,8 @@ function App() {
             c. без извивка на гърбицата
           </label>
         </div>
-
-        {/* Question 8 */}
-        <div>
+        
+        <div id="quiz-box-80" className="quiz-box">
           <p>Question 3: Гънки на страните на носа?</p>
           <label>
             <input
@@ -691,8 +648,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-91" className="quiz-box">
           <p>Question 4: Дълбок или изгладен филтър?</p>
           <label>
             <input
@@ -726,8 +682,12 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        {/* Submit Button */}
+        <button type="submit">Submit</button>
+      </form>
+
+      <form onSubmit={handleSubmit}>
+      <div id="quiz-box-98" className="quiz-box">
           <p>Question 5: Излизащи напред или вмъкнати устни?</p>
           <label>
             <input
@@ -760,8 +720,8 @@ function App() {
             c. вмъкнати
           </label>
         </div>
-        {/* Question 3 */}
-        <div>
+
+        <div id="quiz-box-100" className="quiz-box">
           <p>Question 1: Наклонени или вертикални горни зъби.</p>
           <label>
             <input
@@ -795,8 +755,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-102" className="quiz-box">
           <p>Question 2: Големи или неизпъкващи форни вътрешни резци?</p>
           <label>
             <input
@@ -830,8 +789,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-103" className="quiz-box">
           <p>Question 3: Цепнатина между горните резци?</p>
           <label>
             <input
@@ -865,8 +823,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-113" className="quiz-box">
           <p>Question 4: Единична или двойна брадичка?</p>
           <label>
             <input
@@ -900,8 +857,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-115" className="quiz-box">
           <p>Question 5: Изпъкнала или незабележима адамова ябълка?</p>
           <label>
             <input
@@ -934,8 +890,8 @@ function App() {
             c. незабележима
           </label>
         </div>
-        {/* Question 3 */}
-        <div>
+
+        <div id="quiz-box-117" className="quiz-box">
           <p>Question 1: Щръкнали или прилепнали уши?</p>
           <label>
             <input
@@ -969,8 +925,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-121" className="quiz-box">
           <p>Question 2: Ъгловати или закръглени уши?</p>
           <label>
             <input
@@ -1004,8 +959,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-125" className="quiz-box">
           <p>Question 3: Триъгълна или нормална долна мека част на ухото?</p>
           <label>
             <input
@@ -1038,9 +992,13 @@ function App() {
             c. нормална
           </label>
         </div>
+        
+        {/* Submit Button */}
+        <button type="submit">Submit</button>
+      </form>
 
-        {/* Question 9 */}
-        <div>
+      <form onSubmit={handleSubmit}>
+      <div id="quiz-box-129" className="quiz-box">
           <p>Question 4: Изпъкнала или вдлъбната долна мека част на ухото?</p>
           <label>
             <input
@@ -1074,8 +1032,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-134" className="quiz-box">
           <p>Question 5: Вържица на Дарвин?</p>
           <label>
             <input
@@ -1108,8 +1065,8 @@ function App() {
             c. не няма
           </label>
         </div>
-                {/* Question 3 */}
-                <div>
+
+        <div id="quiz-box-137" className="quiz-box">
           <p>Question 1: Широки или тесни китки.</p>
           <label>
             <input
@@ -1143,8 +1100,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-138" className="quiz-box">
           <p>Question 2: Дълги или къси китки?</p>
           <label>
             <input
@@ -1178,8 +1134,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 8 */}
-        <div>
+        <div id="quiz-box-139" className="quiz-box">
           <p>Question 3: Външни вени на китките - релефни или изгладени?</p>
           <label>
             <input
@@ -1213,8 +1168,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-141" className="quiz-box">
           <p>Question 4: Мазолеста или без кератоз длан?</p>
           <label>
             <input
@@ -1248,8 +1202,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-144" className="quiz-box">
           <p>Question 5: Дланта е слабо или силно изпъстрена с рисунки?</p>
           <label>
             <input
@@ -1282,8 +1235,8 @@ function App() {
             c. силно
           </label>
         </div>
-        {/* Question 3 */}
-        <div>
+        
+        <div id="quiz-box-148" className="quiz-box">
           <p>Question 1: Талия на палеца?</p>
           <label>
             <input
@@ -1317,8 +1270,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 7 */}
-        <div>
+        <div id="quiz-box-150" className="quiz-box">
           <p>Question 2: Къси или дълги нокти?</p>
           <label>
             <input
@@ -1351,9 +1303,13 @@ function App() {
             c. дълги
           </label>
         </div>
+        
+        {/* Submit Button */}
+        <button type="submit">Submit</button>
+      </form>
 
-        {/* Question 8 */}
-        <div>
+      <form onSubmit={handleSubmit}>
+      <div id="quiz-box-168" className="quiz-box">
           <p>Question 3: Широки или тесни глезени?</p>
           <label>
             <input
@@ -1387,8 +1343,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 9 */}
-        <div>
+        <div id="quiz-box-170" className="quiz-box">
           <p>Question 4: Хоризонтални или полегати рамене?</p>
           <label>
             <input
@@ -1422,8 +1377,7 @@ function App() {
           </label>
         </div>
 
-        {/* Question 14 */}
-        <div>
+        <div id="quiz-box-172" className="quiz-box">
           <p>Question 5: Тесен или широк таз?</p>
           <label>
             <input
@@ -1460,8 +1414,9 @@ function App() {
         {/* Submit Button */}
         <button type="submit">Submit</button>
       </form>
+
     </div>
   );
 }
 
-export default App;
+export default TestQuestions;
