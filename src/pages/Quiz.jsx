@@ -7,8 +7,8 @@ function Quiz() {
 
   return (
     <>
-      <CameraQuestions answers={answers} setAnswers={setAnswers} />
-      <TestQuestions answers={answers} setAnswers={setAnswers} />
+      <CameraQuestions/>
+      <TestQuestions/>
     </>
   );
 }
