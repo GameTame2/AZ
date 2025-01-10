@@ -3,7 +3,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #EBE6CF;
+    background-image: url('../img/wave_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #D5D1B7;
     color: #172324;
     font-family: "Alegreya", serif;
     font-weight: 400;
@@ -40,15 +43,32 @@ header {
 
 /*hero*/
 .hero {
-    padding: 10px 11.5%;
+    padding: 0 11.5%;
     display: flex;
     justify-content: space-between;
+    margin: 5vh 0;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title img {
+  max-width: 15rem;
+  transform: scale(1);
+  transition: transform 1s ease;
+  margin-left: -1rem;
+}
+
+.hero-title img:hover{
+  transform: scale(1.1);
 }
 
 .hero-middle {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     text-align: center;
     gap:0;
@@ -59,7 +79,7 @@ header {
     font-weight: 900;
     font-size: 20rem;
     line-height: 1ch;
-    margin: 3rem 0;
+    margin: 0;
 }
 
 .hero-middle h2{
@@ -67,6 +87,7 @@ header {
   font-size: 2rem;
   font-family: "Alegreya", serif;
   font-weight: 400;
+  margin: 3rem 0;
 }
 
 .hero-left img, .hero-right img {
