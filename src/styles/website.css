@@ -172,8 +172,12 @@ header {
   justify-content: center;
 }
 
-.cta img {
+.cta a {
   width: 50%;
+}
+
+.cta img {
+  width: 100%;
 }
 
 /*footer*/
