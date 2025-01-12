@@ -186,7 +186,6 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: #DED7B8;
 }
 
 .footer-middle img {
