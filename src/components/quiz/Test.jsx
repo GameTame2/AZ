@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Test1 from "./tests/Test1";
-// import Test2 from "./tests/Test2";
-// import Test3 from "./tests/Test3";
-// import Test4 from "./tests/Test4";
-// import Test5 from "./tests/Test5";
 import quizData from "../../data/quiz.json";
 
 const Test = () => {
@@ -58,7 +53,7 @@ const Test = () => {
   return (
     <>
       <div className="grid-container">
-        <form className="quiz-grid">
+        <div className="quiz-grid">
           {currentQuestions.map((question) => (
             <div
               id={`quiz-box-${question.id}`}
@@ -82,12 +77,16 @@ const Test = () => {
               ))}
             </div>
           ))}
-        </form>
+        </div>
       </div>
       <div>
-        <button onClick={handleBack}>Back</button>
-        <button onClick={handleForward}>Forward</button>
-        <button onClick={calculateFinalResults}>x</button>
+        <div className="form-button-container">
+          <div className="form-button-container-in">
+            <button onClick={handleBack}>&#9664;</button>
+            <button onClick={handleForward}>&#9654;</button>
+          </div>
+          <button onClick={calculateFinalResults}>x</button>
+        </div>
       </div>
     </>
   );
