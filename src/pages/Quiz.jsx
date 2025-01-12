@@ -8,9 +8,8 @@ function Quiz() {
 
   return (
     <>
-      <Test />
       <CameraQuestions/>
-      <TestQuestions/>
+      <Test />
     </>
   );
 }
