@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import vision from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3';
 import '../../styles/quiz.css';
 
-function CameraQuestions() {
+const CameraQuestions = ({ onCalculateFinalResults }) => {
   const { FaceLandmarker, FilesetResolver } = vision;
 
   const [faceLandmarker, setFaceLandmarker] = useState(null);
@@ -138,67 +138,81 @@ function CameraQuestions() {
       // Example: Rectangle or Oval face
       const faceWidth = points.rightCheekbone.x - points.leftCheekbone.x;
       const faceHeight = points.chin.y - points.middleEyebrows.y;
-      newResult['question7'] = faceWidth > faceHeight ? 'maths' : 'physics';
+      newResult['7'] = faceWidth > faceHeight ? 'math' : 'physics';
+      newResult['18'] = faceWidth > faceHeight ? 'math' : 'physics';
+      newResult['24'] = faceWidth > faceHeight ? 'math' : 'physics';
 
       // Egg-shaped or Equilateral Pentagon face
       const cheekboneWidth = faceWidth;
       const jawlineWidth = points.rightMouthCorner.x - points.leftMouthCorner.x;
-      newResult['question26'] = cheekboneWidth > jawlineWidth ? 'physics' : 'maths';
+      newResult['26'] = cheekboneWidth > jawlineWidth ? 'physics' : 'math';
 
       // Low or High Eyebrows
       const eyebrowHeight = points.middleEyebrows.y - (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
-      newResult['question37'] = eyebrowHeight > 0.05 ? 'physics' : 'maths';
+      newResult['37'] = eyebrowHeight > 0.05 ? 'physics' : 'math';
 
       // Short or Long Eyebrows
       const eyebrowWidth = Math.abs(points.leftEyebrow.x - points.rightEyebrow.x);
-      newResult['question43'] = eyebrowWidth > 0.2 ? 'physics' : 'maths';
+      newResult['43'] = eyebrowWidth > 0.2 ? 'physics' : 'math';
 
       // Lower eyelid touching iris
       const irisDistance = Math.abs(points.leftEye.y - points.rightEye.y);
-      newResult['question60'] = irisDistance < 0.03 ? 'physics' : 'maths';
+      newResult['60'] = irisDistance < 0.03 ? 'physics' : 'math';
 
       // Narrow or Wide Nose Base
       const noseWidth = Math.abs(points.noseBase.x - points.leftCheekbone.x);
-      newResult['question61'] = noseWidth < 0.15 ? 'physics' : 'maths';
+      newResult['61'] = noseWidth < 0.15 ? 'physics' : 'math';
 
       // Nose base above or below the pupil
       const noseToPupilDistance = Math.abs(points.noseBase.y - points.leftEye.y);
-      newResult['question65'] = noseToPupilDistance > 0.05 ? 'physics' : 'maths';
+      newResult['65'] = noseToPupilDistance > 0.05 ? 'physics' : 'math';
 
       // Overall or Split Nose Tip
       const noseTipOffset = Math.abs(points.noseTip.x - points.noseBase.x);
-      newResult['question68'] = noseTipOffset < 0.02 ? 'physics' : 'maths';
+      newResult['68'] = noseTipOffset < 0.02 ? 'physics' : 'math';
 
       // Wide or Narrow Nose Bridge
       const noseBridgeWidth = Math.abs(points.noseBridge.x - points.noseTip.x);
-      newResult['question75'] = noseBridgeWidth < 0.05 ? 'maths' : 'physics';
+      newResult['75'] = noseBridgeWidth < 0.05 ? 'math' : 'physics';
 
       // Narrow or Wide Lips
       const mouthWidth = Math.abs(points.rightMouthCorner.x - points.leftMouthCorner.x);
-      newResult['question93'] = mouthWidth < 0.2 ? 'physics' : 'maths';
+      newResult['93'] = mouthWidth < 0.2 ? 'physics' : 'math';
 
       // Raised or Dropped Mouth Corners
       const mouthCornerHeight = Math.abs(points.leftMouthCorner.y - points.rightMouthCorner.y);
-      newResult['question97'] = mouthCornerHeight < 0.03 ? 'maths' : 'physics';
+      newResult['97'] = mouthCornerHeight < 0.03 ? 'math' : 'physics';
 
       // Protruding or Sloping Chin
-      newResult['question112'] = points.chin.y < points.middleEyebrows.y ? 'maths' : 'physics';
+      newResult['112'] = points.chin.y < points.middleEyebrows.y ? 'math' : 'physics';
 
       // Update results dynamically
       setResult(prev => ({ ...prev, ...newResult }));
+    console.log(newResult);
     }
   }, [faceLandmarker]);
 
-  // Calculate final results
-  const calculateFinalResults = () => {
-    const finalResults = {};
 
-    Object.values(result).forEach(answer => {
-      finalResults[answer] = (finalResults[answer] || 0) + 1;
+  function calculateFinalResults(newResult) {
+    const finalResult = {};
+  
+    // Iterate over the values in the newResult object
+    Object.values(newResult).forEach((value) => {
+      // Increment the count for the value in the result object
+      finalResult[value] = (finalResult[value] || 0) + 1;
     });
+  
+    return finalResult;
+  }
+  
+  // Usage in the button's onClick handler
+  const handleSubmit = useCallback(() => {
+    const finalResults = calculateFinalResults(result); // Use the current `result` state
+    console.log("Camera Results:", finalResults); // Log or use finalResults as needed
+    onCalculateFinalResults(finalResults);
+  }, [result]);
 
-    console.log('Final Results:', finalResults);
-  };
+  
 
   return (
     <div className="face-qs">
@@ -209,10 +223,11 @@ function CameraQuestions() {
             <video ref={videoRef} autoPlay playsInline />
             <canvas ref={canvasRef} style={{ position: 'absolute', left: 0, top: 0 }} />
           </div>
-          <button id="video-button" onClick={() => {
-              measureFace().then(calculateFinalResults);
-            }}>
+          <button id="video-button" onClick={measureFace}>
             Measure
+          </button>
+          <button id='video-button' onClick={handleSubmit}>
+            Submit
           </button>
         </div>
       </section>
