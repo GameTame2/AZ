@@ -2,29 +2,29 @@
   [
     {
       "id": 3,
-      "question": "Kak si dnes",
+      "question": "Тъмна или светла коса",
       "answers": {
-        "dobre": "mahts",
-        "sredno": "fizika",
-        "zle": "bg"
+        "dobre": "Светла",
+        "sredno": "Средна",
+        "zle": "Тъмна"
       }
     },
     {
       "id": 8,
-      "question": "Kak si mecho",
+      "question": "Плосък или изпъкнал тил",
       "answers": {
-        "dobre": "mahts",
-        "sredno": "fizika",
-        "zle": "bg"
+        "dobre": "Плосък",
+        "sredno": "Среден",
+        "zle": "Изпъкнал"
       }
     },
     {
       "id": 9,
-      "question": "Kak si dnes",
+      "question": "Трапчинка на тила",
       "answers": {
-        "dsa": "mahts",
-        "sredno": "fizika",
-        "zle": "bg"
+        "dsa": "Има",
+        "sredno": "Средно",
+        "zle": "Няма"
       }
     },
     {
