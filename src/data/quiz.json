@@ -2,7 +2,7 @@
   [
     {
       "id": 3,
-      "question": "Kak si dnes",
+      "question": "Тъмна или светла коса",
       "answers": {
         "dobre": "math",
         "sredno": "physics",
@@ -11,65 +11,65 @@
     },
     {
       "id": 8,
-      "question": "Kak si mecho",
+      "question": "Плосък или изпъкнал тил",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Плосък",
+        "sredno": "Среден",
+        "zle": "Изпъкнал"
       }
     },
     {
       "id": 9,
-      "question": "Kak si dnes",
+      "question": "Трапчинка на тила",
       "answers": {
-        "dsa": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dsa": "Има",
+        "sredno": "Средно",
+        "zle": "Няма"
       }
     },
     {
       "id": 14,
-      "question": "Kak si dnes",
+      "question": "Право или скосено слепоочие",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Право",
+        "sredno": "Средно",
+        "zle": "Скосено"
       }
     },
     {
       "id": 20,
-      "question": "Kak si dnes",
+      "question": "Червендалесто или млечно лице",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Млечно",
+        "sredno": "Средно",
+        "zle": "Червендалесто"
       }
     },
     {
       "id": 33,
-      "question": "Kak si dnes",
+      "question": "Гладки или издадени скули",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Гладки",
+        "sredno": "Средно",
+        "zle": "Издадени"
       }
     },
     {
       "id": 34,
-      "question": "Kak si dnes",
+      "question": "Тъп или прав ъгъл на челюстта",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Прав",
+        "sredno": "Средно",
+        "zle": "Тъп"
       }
     },
     {
       "id": 36,
-      "question": "Kak si dnes",
+      "question": "Изпъкнало или гладко надвеждие",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Гладко",
+        "sredno": "Средно",
+        "zle": "Изпъкнало"
       }
     }
   ],
@@ -77,299 +77,74 @@
   [
     {
       "id": 38,
-      "question": "Kak si dnes2",
+      "question": "Прави или дъгообразни вежди",
       "answers": {
-        "dobre2": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Прави",
+        "sredno": "Средно",
+        "zle": "Дъгообразни"
       }
     },
     {
       "id": 44,
-      "question": "Kak si mecho2",
+      "question": "Широки или тесни вежди",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Широки",
+        "sredno": "Средно",
+        "zle": "Тесни"
       }
     },
     {
       "id": 56,
-      "question": "Kak si dnes2",
+      "question": "Тънки или дебели ресници",
       "answers": {
-        "dsa": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Тънки",
+        "sredno": "Средно",
+        "zle": "Дебели"
       }
     },
     {
       "id": 58,
-      "question": "Kak si dnes",
+      "question": "Прикрита или виждаща се гънка на горния клепач",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Виждаща се",
+        "sredno": "Средно",
+        "zle": "Прикрита"
       }
     },
     {
       "id": 62,
-      "question": "Kak si dnes",
+      "question": "Висока или ниска основа на носа",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Висока",
+        "sredno": "Средно",
+        "zle": "Ниска"
       }
     },
     {
       "id": 64,
-      "question": "Kak si dnes",
+      "question": "Основа на носа - с или без вдлъбнатина",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "С вдлъбнатина",
+        "sredno": "Средно",
+        "zle": "Без вдлъбнатина"
       }
     },
     {
       "id": 66,
-      "question": "Kak si dnes",
+      "question": "Липсващ или изразен ъгъл между челото и носа",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "Изразен",
+        "sredno": "Средно",
+        "zle": "Липсващ"
       }
     },
     {
       "id": 77,
-      "question": "Kak si dnes",
+      "question": "С или без извивка на гърбицата на носа",
       "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    }
-  ],
-
-  [
-    {
-      "id": 3,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 8,
-      "question": "Kak si mecho",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 9,
-      "question": "Kak si dnes",
-      "answers": {
-        "dsa": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 14,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 20,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 33,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 34,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 36,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    }
-  ],
-
-  [
-    {
-      "id": 3,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 8,
-      "question": "Kak si mecho",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 9,
-      "question": "Kak si dnes",
-      "answers": {
-        "dsa": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 14,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 20,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 33,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 34,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 36,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    }
-  ],
-
-  [
-    {
-      "id": 3,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 8,
-      "question": "Kak si mecho",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 9,
-      "question": "Kak si dnes",
-      "answers": {
-        "dsa": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 14,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 20,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 33,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 34,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
-      }
-    },
-    {
-      "id": 36,
-      "question": "Kak si dnes",
-      "answers": {
-        "dobre": "math",
-        "sredno": "physics",
-        "zle": "bg"
+        "dobre": "С извивка",
+        "sredno": "Средно",
+        "zle": "Без извивка"
       }
     }
   ]
