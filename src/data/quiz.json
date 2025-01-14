@@ -4,9 +4,9 @@
       "id": 3,
       "question": "Тъмна или светла коса",
       "answers": {
-        "dobre": "Светла",
-        "sredno": "Средна",
-        "zle": "Тъмна"
+        "dobre": "math",
+        "sredno": "physics",
+        "zle": "bg"
       }
     },
     {

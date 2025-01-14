@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import quizData from "../../data/quiz.json";
 
-const Test = () => {
+const Test = ({ onCalculateFinalResults }) => {
   const [currentQuestions, setCurrentQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -32,22 +32,18 @@ const Test = () => {
   const calculateFinalResults = () => {
     const result = {};
 
-    Object.keys(answers).map((key) => {
-      console.log(answers[key]);
+    Object.keys(answers).forEach((key) => {
       if (Array.isArray(answers[key])) {
         answers[key].forEach((answer) => {
-          if (answer in result) {
-            result[answer] += 1;
-          } else result[answer] = 1;
+          result[answer] = (result[answer] || 0) + 1;
         });
       } else {
-        if (answers[key] in result) {
-          result[answers[key]] += 1;
-        } else result[answers[key]] = 1;
+        result[answers[key]] = (result[answers[key]] || 0) + 1;
       }
     });
 
     console.log(result);
+    onCalculateFinalResults(result); // Send the result to the parent
   };
 
   return (
@@ -85,7 +81,7 @@ const Test = () => {
             <button onClick={handleBack}>&#9664;</button>
             <button onClick={handleForward}>&#9654;</button>
           </div>
-          <button onClick={calculateFinalResults}>x</button>
+          <button onClick={calculateFinalResults}>Calculate</button>
         </div>
       </div>
     </>
