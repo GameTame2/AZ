@@ -160,9 +160,16 @@ header {
   margin: 0;
 }
 
-.face-box img {
+.face-img {
   max-width: 5rem;
+  transform: scale(1);
+  transition: transform 2s ease;
 }
+
+.face-img:hover {
+  transform: scale(1.15) rotate(360deg);
+}
+
 
 /*cta*/
 .cta{
