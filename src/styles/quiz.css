@@ -6,11 +6,6 @@
     margin-bottom: 5vh;
 }
 
-.face-qs video {
-  transform: rotateY(180deg);
-  -webkit-transform:rotateY(180deg)
-}
-
 .grid-container {
   margin: 10px 15%;
   display: flex;
