@@ -3,9 +3,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('../img/wave_background.png');
+    background-image: url('../img/blurry-gradient-haikei.png');
     background-size: cover;
-    background-repeat: no-repeat;
     background-color: #D5D1B7;
     color: #172324;
     font-family: "Alegreya", serif;
