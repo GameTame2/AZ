@@ -145,7 +145,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       // Egg-shaped or Equilateral Pentagon face
       const cheekboneWidth = faceWidth;
       const jawlineWidth = points.rightMouthCorner.x - points.leftMouthCorner.x;
-      newResult['26'] = cheekboneWidth > jawlineWidth ? 'math' : '';
+      newResult['26'] = cheekboneWidth > jawlineWidth ? ['math', 'bio'] : '';
 
       // Low or High Eyebrows
       const eyebrowHeight = points.middleEyebrows.y - (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
@@ -153,11 +153,11 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Short or Long Eyebrows
       const eyebrowWidth = Math.abs(points.leftEyebrow.x - points.rightEyebrow.x);
-      newResult['43'] = eyebrowWidth > 0.2 ? '' : '';
+      newResult['43'] = eyebrowWidth > 0.2 ? ['journal', 'journal', 'history'] : '';
 
       // Lower eyelid touching iris
       const irisDistance = Math.abs(points.leftEye.y - points.rightEye.y);
-      newResult['60'] = irisDistance < 0.03 ? 'geo' : '';
+      newResult['60'] = irisDistance < 0.03 ? ['geo'] : '';
 
       // Narrow or Wide Nose Base
       const noseWidth = Math.abs(points.noseBase.x - points.leftCheekbone.x);
@@ -165,11 +165,11 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Nose base above or below the pupil
       const noseToPupilDistance = Math.abs(points.noseBase.y - points.leftEye.y);
-      newResult['65'] = noseToPupilDistance > 0.05 ? 'chem' : '';
+      newResult['65'] = noseToPupilDistance > 0.05 ? ['chem', 'bio', 'history'] : '';
 
       // Overall or Split Nose Tip
       const noseTipOffset = Math.abs(points.noseTip.x - points.noseBase.x);
-      newResult['68'] = noseTipOffset < 0.02 ? '' : '';
+      newResult['68'] = noseTipOffset < 0.02 ? '' : 'history';
 
       // Wide or Narrow Nose Bridge
       const noseBridgeWidth = Math.abs(points.noseBridge.x - points.noseTip.x);
@@ -177,14 +177,14 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Narrow or Wide Lips
       const mouthWidth = Math.abs(points.rightMouthCorner.x - points.leftMouthCorner.x);
-      newResult['93'] = mouthWidth < 0.2 ? '' : '';
+      newResult['93'] = mouthWidth < 0.2 ? 'journal' : '';
 
       // Raised or Dropped Mouth Corners
       const mouthCornerHeight = Math.abs(points.leftMouthCorner.y - points.rightMouthCorner.y);
-      newResult['97'] = mouthCornerHeight < 0.03 ? '' : '';
+      newResult['97'] = mouthCornerHeight < 0.03 ? 'journal' : '';
 
       // Protruding or Sloping Chin
-      newResult['112'] = points.chin.y < points.middleEyebrows.y ? '' : '';
+      newResult['112'] = points.chin.y < points.middleEyebrows.y ? 'journal' : '';
 
       // Update results dynamically
       setResult(prev => ({ ...prev, ...newResult }));
