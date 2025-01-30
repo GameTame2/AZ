@@ -1,0 +1,70 @@
+/* Global Reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Matches the viewport height */
+  width: 100vw; /* Matches the viewport width */
+  text-align: center;
+  font-size: 4vw; /* Font size adjusts with the screen width */
+  font-weight: bold;
+  transition: font-size 0.3s ease; /* Smooth font resizing */
+}
+
+/* Horizontal container setup */
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+/* Specific slide colors */
+.flex .slide:nth-child(1) {
+  background-color: blue;
+  color: white;
+}
+
+.flex .slide:nth-child(2) {
+  background-color: red;
+  color: white;
+}
+
+.flex .slide:nth-child(3) {
+  background-color: green;
+  color: white;
+}
+
+.flex .slide:nth-child(4) {
+  background-color: yellow;
+  color: black;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flex{
+    overflow-y: hidden;
+  }
+  .slide {
+    font-size: 6vw; /* Larger font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    font-size: 8vw; /* Even larger font size for very small screens */
+  }
+}
