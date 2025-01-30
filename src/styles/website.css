@@ -3,11 +3,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url('../img/blurry-gradient-haikei.png');
+    background-color: #EBE6CF;
     background-size: cover;
-    background-color: #D5D1B7;
     color: #172324;
-    font-family: "Alegreya", serif;
+    font-family: "new", serif;
     font-weight: 400;
 }
 
@@ -57,11 +56,13 @@ header {
   max-width: 15rem;
   transform: scale(1);
   transition: transform 1s ease;
-  margin-left: -1rem;
+  margin-left: -1.5rem;
+  margin-bottom: -2rem;
+  transform: rotate(-5deg);
 }
 
 .hero-title img:hover{
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .hero-middle {
@@ -93,80 +94,37 @@ header {
     max-width: 16.5rem;
 }
 
-/*face*/
-
-.face {
+/*feartures*/
+#features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  gap: 10px;
-  padding: 0 20%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  margin: 0 15vw;
+  gap: 1rem;
 }
 
-#large-face-box {
-  grid-column: 2 / span 2;
-  grid-row: 1 / span 3;
+.feature-box {
+  padding: 2rem 0;
+  background: rgb(245,242,228);
+  background: linear-gradient(145deg, rgba(245,242,228,1) 0%, rgba(246,245,235,1) 100%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
 }
 
-#large-face-box img {
-  max-width: 30vw;
+.feature-box img{
+  max-height: 50%;
 }
 
-#face-box-1 {
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 1;
+#features .feature-box:first-child {
+  grid-column: span 2;
 }
 
-#face-box-2 {
-  grid-column: 4 / span 1;
-  grid-row: 1 / span 1;
-}
-
-#face-box-3 {
-  grid-column: 1 / span 1;
-  grid-row: 2 / span 1;
-}
-
-#face-box-4 {
-  grid-column: 4 / span 1;
-  grid-row: 2 / span 1;
-}
-
-#face-box-5 {
-  grid-column: 2 / span 1;
-  grid-row: 4 / span 1;
-}
-
-#face-box-6 {
-  grid-column: 3 / span 1;
-  grid-row: 4 / span 1;
-}
-
-.face-box {
-    display: flex;
-    flex-direction: column;
-    row-gap: 5px;
-    align-items: center;
-    justify-content: center;
-}
-
-.face-box-title {
-  text-align: center;
-  font-size: 1.15rem;
-  margin: 0;
-}
-
-.face-img {
-  max-width: 5rem;
-  transform: scale(1);
-  transition: transform 2s ease;
-}
-
-.face-img:hover {
-  transform: scale(1.15) rotate(360deg);
+#features .feature-box:first-child img {
+  max-width: 50%;
+  max-height: 100%;
 }
 
 
