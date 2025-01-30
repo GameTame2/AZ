@@ -149,11 +149,11 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Low or High Eyebrows
       const eyebrowHeight = points.middleEyebrows.y - (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
-      newResult['37'] = eyebrowHeight > 0.05 ? 'geo' : '';
+      newResult['37'] = eyebrowHeight > 0.05 ? 'geo' : 'art';
 
       // Short or Long Eyebrows
       const eyebrowWidth = Math.abs(points.leftEyebrow.x - points.rightEyebrow.x);
-      newResult['43'] = eyebrowWidth > 0.2 ? ['journal', 'journal', 'history'] : '';
+      newResult['43'] = eyebrowWidth > 0.2 ? ['journal', 'journal', 'history', 'ped', 'art'] : '';
 
       // Lower eyelid touching iris
       const irisDistance = Math.abs(points.leftEye.y - points.rightEye.y);
@@ -161,15 +161,15 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Narrow or Wide Nose Base
       const noseWidth = Math.abs(points.noseBase.x - points.leftCheekbone.x);
-      newResult['61'] = noseWidth < 0.15 ? 'geo' : '';
+      newResult['61'] = noseWidth < 0.15 ? 'geo' : 'med';
 
       // Nose base above or below the pupil
       const noseToPupilDistance = Math.abs(points.noseBase.y - points.leftEye.y);
-      newResult['65'] = noseToPupilDistance > 0.05 ? ['chem', 'bio', 'history'] : '';
+      newResult['65'] = noseToPupilDistance > 0.05 ? ['chem', 'bio', 'history', 'med'] : '';
 
       // Overall or Split Nose Tip
       const noseTipOffset = Math.abs(points.noseTip.x - points.noseBase.x);
-      newResult['68'] = noseTipOffset < 0.02 ? '' : 'history';
+      newResult['68'] = noseTipOffset < 0.02 ? '' : ['history', 'ped', 'med'];
 
       // Wide or Narrow Nose Bridge
       const noseBridgeWidth = Math.abs(points.noseBridge.x - points.noseTip.x);
@@ -184,7 +184,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       newResult['97'] = mouthCornerHeight < 0.03 ? 'journal' : '';
 
       // Protruding or Sloping Chin
-      newResult['112'] = points.chin.y < points.middleEyebrows.y ? 'journal' : '';
+      newResult['112'] = points.chin.y < points.middleEyebrows.y ? ['journal', 'history', 'med'] : '';
 
       // Update results dynamically
       setResult(prev => ({ ...prev, ...newResult }));
