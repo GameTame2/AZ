@@ -3,7 +3,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #EBE6CF;
+    background-image: url("../img/newwest.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     color: #172324;
     font-family: "new", serif;
@@ -84,49 +86,149 @@ header {
 
 .hero-middle h2{
   max-width: 50ch;
-  font-size: 2rem;
-  font-family: "Alegreya", serif;
+  font-size: 1.75rem;
   font-weight: 400;
   margin: 3rem 0;
 }
+
+
 
 .hero-left img, .hero-right img {
     max-width: 16.5rem;
 }
 
-/*feartures*/
-#features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  margin: 0 15vw;
-  gap: 1rem;
-}
-
-.feature-box {
-  padding: 2rem 0;
-  background: rgb(245,242,228);
-  background: linear-gradient(145deg, rgba(245,242,228,1) 0%, rgba(246,245,235,1) 100%);
+/*face*/
+.face {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.face h1 {
+  font-size: 3rem;
+}
+
+.face-name {
+  font-family: "Great Vibes", serif;
+  font-size: 4rem;
+}
+
+.face-name a {
+  text-decoration: none;
+  color: #779C6C;
+}
+
+.face canvas {
+  height: 100vh;
+}
+
+.face a {
+  display: flex;
   justify-content: center;
-  border-radius: 2rem;
 }
 
-.feature-box img{
-  max-height: 50%;
+#facecta {
+  width: 40%;
 }
 
-#features .feature-box:first-child {
-  grid-column: span 2;
+
+/*feartures*/
+.features {
+  margin-top: 5rem;
 }
 
-#features .feature-box:first-child img {
-  max-width: 50%;
-  max-height: 100%;
+.features img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+.features h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 2.5em;
+}
+
+.features p {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  margin: 0 10vw;
+}
+
+.intro h1 {
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+}
+
+.card {
+  position: relative;
+  padding: 0 10vw;
+}
+
+.card-inner {
+  position: relative;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  display: flex;
+  gap: 4em;
+  border-radius: 1rem;
+}
+
+.card-content {
+  flex: 3;
+}
+
+.card-img {
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.75em;
+  overflow: hidden;
+}
+
+
+#card-1 .card-inner {
+  background-color: #9bc090;
+}
+
+#card-2 .card-inner {
+  background-color: #374F2F;
+  color: #fff;
+}
+
+#card-3 .card-inner {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+#card-4 .card-inner {
+  background-color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .features h1 {
+    margin-bottom: 4rem;
+  }
+
+  .features p {
+    font-size: 1rem;
+  }
+
+  .card-inner {
+    flex-direction: column;
+  }
+
+  .card-img {
+    display: none;
+  }
+}
 
 /*cta*/
 .cta{

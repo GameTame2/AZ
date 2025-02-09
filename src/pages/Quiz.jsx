@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CameraQuestions from "../components/quiz/CameraQuestions.jsx";
 import Test from "../components/quiz/Test.jsx";
+import ScrollSection from "../components/quiz/ScrollSection.jsx";
 import "../styles/quiz.css";
 
 function Quiz() {
@@ -28,6 +29,7 @@ function Quiz() {
           <pre>{JSON.stringify(result, null, 2)}</pre>
         </div>
       )}
+      <ScrollSection />
     </>
   );
 }

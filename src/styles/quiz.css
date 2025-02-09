@@ -71,3 +71,34 @@
   .quiz-box p {
     margin: 5px auto;
   }
+
+
+/*horizontal*/
+
+.scroll-section-outer {
+  overflow: hidden;
+}
+
+.scroll-section-inner {
+  height: 100vh;
+  width: 500vw;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.scroll-section {
+  background-color: burlywood;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-section h3 {
+  color: #0aa1ff;
+  letter-spacing: clamp(1rem, 2vw, 4rem);
+  font-size: clamp(1rem, 2vw, 4rem);
+  text-transform: uppercase;
+}
