@@ -21,16 +21,20 @@ function Quiz() {
 
   return (
     <>
-      <button onClick={() => setShowTestQuestions(true)}>
-        Start Test Questions
-      </button>
 
       <CameraQuestions onCalculateFinalResults={handleFinalResults} />
 
-        {showTestQuestions && (
-      <ScrollSection/>
-        )}
-
+    <div className="quiz-container">
+    <div className="quiz-headings-container">
+      <h1>Готови с камерата?</h1>
+      <a className="quiz-button" onClick={() => setShowTestQuestions(true)}>
+        Започнете с тестовите въпроси
+      </a>
+    </div>
+    
+      {showTestQuestions && (
+        <ScrollSection onCalculateFinalResults={handleFinalResults} />
+      )}
 
       {Object.keys(result).length > 0 && (
         <div>
@@ -38,6 +42,7 @@ function Quiz() {
           <pre>{JSON.stringify(result, null, 2)}</pre>
         </div>
       )}
+    </div>
     </>
   );
 }

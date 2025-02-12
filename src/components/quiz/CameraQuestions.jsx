@@ -9,7 +9,8 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
   const [runningMode, setRunningMode] = useState('IMAGE');
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const videoWidth = 840;
+  const videoWidth = window.innerWidth * 0.5;
+
 
   // To store results dynamically
   const [result, setResult] = useState({});
@@ -227,15 +228,36 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       <section className="video">
         <div>
           <div style={{ position: 'relative' }}>
-            <video ref={videoRef} autoPlay playsInline />
-            <canvas ref={canvasRef} style={{ position: 'absolute', left: 0, top: 0 }} />
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            style={{
+              width: "100%",
+              height: "auto", // Maintain aspect ratio
+              display: "block",
+            }}
+          />
+            <canvas
+              ref={canvasRef}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%",
+                height: "100%", // Ensures the overlay stays on top of the video
+              }}
+            />
           </div>
-          <button id="video-button" onClick={measureFace}>
-            Measure
-          </button>
-          <button id='video-button' onClick={handleSubmit}>
-            Submit
-          </button>
+          <div className="camera-buttons">
+            <a className="quiz-button" onClick={measureFace}>
+              Измерване
+            </a>
+            <a className='quiz-button' onClick={handleSubmit}>
+              Готов!
+            </a>
+          </div>
+
         </div>
       </section>
     </div>

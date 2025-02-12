@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import '../../styles/quiz.css';
 import quizData from '../../data/quiztwo.json';
 
-function ScrollSection({ onCalculateFinalResults }) {
+function ScrollSection({ onCalculateFinalResults = () => {} }) {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [currentQuestions, setCurrentQuestions] = useState([]);
@@ -27,7 +27,7 @@ function ScrollSection({ onCalculateFinalResults }) {
         scrollTrigger: {
           trigger: triggerRef.current,
           start: "top top",
-          end: "20000 top",
+          end: "20000 bottom",
           scrub: 0.6,
           pin: true,
         },
@@ -115,7 +115,7 @@ function ScrollSection({ onCalculateFinalResults }) {
         </div>
       </div>
 
-      <button onClick={calculateFinalResults}>Calculate</button>
+      <a onClick={calculateFinalResults} className="quiz-button">Calculate</a>
 
       {finalResultMessage && (
         <div className="result-message">
