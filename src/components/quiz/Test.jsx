@@ -48,12 +48,24 @@ const Test = ({ onCalculateFinalResults }) => {
 
     // Check the category count and set a message
     let message = "Your talent is unknown!";
-    if (result["math"] >= 14) {
+    if (result["math"] >= 8) {
       message = "You are a mathematician!";
-    } else if (result["med"] >= 14) {
-      message = "You are a medical expert!";
-    } else if (result["art"] >= 14) {
-      message = "You are an artist!";
+    } else if (result["chem"] >= 6) {
+      message += "You are a chemist!";
+    } else if (result["geo"] >= 6) {
+      message += "You are a geograph!";
+    } else if (result["bio"] >= 6) {
+      message += "You are a biologist!";
+    } else if (result["journal"] >= 7) {
+      message += "You are a journalist!";
+    } else if (result["history"] >= 6) {
+      message += "You are a historian!";
+    } else if (result["ped"] >= 6) {
+      message += "You are a pedagog!";
+    } else if (result["med"] >= 6) {
+      message += "You are a medician!";
+    } else if (result["art"] >= 6) {
+      message += "You are an artist!";
     }
 
     setFinalResultMessage(message);

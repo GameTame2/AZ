@@ -80,18 +80,22 @@
 }
 
 .scroll-section-inner {
-  height: 100vh;
-  width: 500vw;
   display: flex;
   flex-direction: row;
   position: relative;
+  height: 100vh;
+  gap: 10vw;
+  padding: 0 10vw;
+  width: 2250vw;
+
 }
 
 .scroll-section {
   background-color: burlywood;
-  height: 100vh;
-  width: 100vw;
+  height: 75vh;
+  width: 50vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

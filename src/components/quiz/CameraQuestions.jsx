@@ -9,7 +9,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
   const [runningMode, setRunningMode] = useState('IMAGE');
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const videoWidth = 660;
+  const videoWidth = 840;
 
   // To store results dynamically
   const [result, setResult] = useState({});
@@ -199,6 +199,13 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
     // Iterate over the values in the newResult object
     Object.values(newResult).forEach((value) => {
       // Increment the count for the value in the result object
+      if (value=="") return;
+      if (Array.isArray(value)) {
+        value.forEach((element) => {
+          finalResult[element] = (finalResult[element] || 0) + 1;
+        });
+        return;
+      }
       finalResult[value] = (finalResult[value] || 0) + 1;
     });
   
