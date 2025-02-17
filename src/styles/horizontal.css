@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh; /* Matches the viewport height */
-  width: 100vw; /* Matches the viewport width */
+  width: 100%; /* Adjusted to 100% of container width */
   text-align: center;
   font-size: 4vw; /* Font size adjusts with the screen width */
   font-weight: bold;
@@ -55,10 +55,15 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .flex{
-    overflow-y: hidden;
+  .flex {
+    flex-direction: column; /* Switch to vertical layout on smaller screens */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
   }
+
   .slide {
+    width: 100vw; /* Full width for vertical layout */
+    height: 100vh; /* Full height for each slide */
     font-size: 6vw; /* Larger font size for smaller screens */
   }
 }

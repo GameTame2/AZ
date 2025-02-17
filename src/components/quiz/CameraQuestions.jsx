@@ -224,7 +224,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
   return (
     <div className="face-qs">
-      <h1>Face Detection with Selected Points</h1>
+      <h1>Стъпка 1: Сканирай лицето си!</h1>
       <section className="video">
         <div>
           <div style={{ position: 'relative' }}>

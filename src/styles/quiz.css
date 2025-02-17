@@ -85,19 +85,20 @@
   position: relative;
   height: 100vh;
   gap: 10vw;
-  padding: 0 10vw;
-  width: 2250vw;
+  width: 2200vw;
+  padding: 25vh 0;
 
 }
 
 .scroll-section {
-  background-color: burlywood;
-  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 50vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
 }
 
 .quiz-button {
@@ -121,4 +122,52 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.scroll-section h3 {
+  font-size: 2rem;
+  max-width: 80%;
+  text-align: center;
+}
+
+.scroll-section label {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-section input {
+  margin-bottom: 1rem;
+}
+
+.scroll-section-middle {
+  position: relative;
+}
+
+.answered-count {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%,0);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.progress-bar-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 70%;
+  height: 25px;
+  background-color: #ffffff; /* Background color of the progress bar container */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5rem; /* Adjust spacing as needed */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #76c7c0; /* Fill color of the progress bar */
+  transition: width 0.3s ease; /* Smooth transition for the width change */
 }

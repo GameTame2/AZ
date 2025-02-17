@@ -17,9 +17,6 @@ const Card = ({ title, copy, index }) => {
           <h1>{title}</h1>
           <p>{copy}</p>
         </div>
-        <div className="card-img">
-          <img src="../../card-1.png" alt={title} />
-        </div>
       </div>
     </div>
   );

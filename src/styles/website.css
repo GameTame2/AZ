@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-image: url("../img/newwest.png");
+    background: rgba(255, 255, 255, 0.5);
+    background-image: url("../img/idk5.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

@@ -11,6 +11,7 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [finalResultMessage, setFinalResultMessage] = useState("");
+  const [answeredCount, setAnsweredCount] = useState(0); // Track answered questions
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -43,10 +44,17 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
   }, [currentIndex]);
 
   const handleAnswer = (questionId, value) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [questionId]: value,
-    }));
+    setAnswers((prevAnswers) => {
+      const newAnswers = {
+        ...prevAnswers,
+        [questionId]: value,
+      };
+
+      // Update the answered count based on the number of keys in newAnswers
+      setAnsweredCount(Object.keys(newAnswers).length);
+
+      return newAnswers;
+    });
   };
 
   const calculateFinalResults = () => {
@@ -89,9 +97,12 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
     setFinalResultMessage(message);
   };
 
+  // Calculate the percentage of answered questions
+  const progressPercentage = (answeredCount / quizData.length) * 100;
+
   return (
     <section className="scroll-section-outer">
-      <div ref={triggerRef}>
+      <div ref={triggerRef} className="scroll-section-middle">
         <div ref={sectionRef} className="scroll-section-inner">
           {quizData.map((item) => (
             <div className="scroll-section" key={item.id}>
@@ -99,7 +110,8 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
               <form>
                 {Object.keys(item.answers).map((key) => (
                   <label key={key}>
-                    <input
+                    <div>
+                      <input
                       type="radio"
                       name={`question-${item.id}`}
                       value={key}
@@ -107,13 +119,23 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
                       checked={answers[item.id] === item.answers[key]}
                     />
                     {key}
+                    </div>
                   </label>
                 ))}
               </form>
             </div>
           ))}
         </div>
+        <div className="progress-bar-container">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
       </div>
+      </div>
+
+      {/* Progress Bar */}
+      
 
       <a onClick={calculateFinalResults} className="quiz-button">Calculate</a>
 

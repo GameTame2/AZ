@@ -8,7 +8,7 @@ function Face() {
   return (
     <div className="face">
         <div className="face-title">
-            <h1>Запознайте се с <span className="face-name"><a href="">Иван</a></span></h1>
+            <h1>Запознайте се с <span className="face-name"><a href="/story">Иван</a></span></h1>
             <p></p>
         </div>
         <Canvas>
@@ -17,9 +17,6 @@ function Face() {
           <Man scale={2.5} position={[0, 0, 0]} />
           </Suspense>
         </Canvas>
-        <a href="/quiz">
-        <img src="src/img/cta.png" alt="cta-button" id='facecta'/>
-        </a>
     </div>
   );
 }

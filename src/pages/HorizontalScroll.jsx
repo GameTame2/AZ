@@ -2,13 +2,14 @@ import React from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import '../styles/horizontal.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HorizontalScroll = () => {
   const containerRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -16,15 +17,21 @@ const HorizontalScroll = () => {
       direction: "horizontal",
     });
 
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
     const container = containerRef.current;
     const slides = container.querySelectorAll(".slide");
-    const containerWidth = slides.length * window.innerWidth;
+    const containerWidth = slides.length * windowWidth;
 
     gsap.set(container, { width: containerWidth });
-    gsap.set(slides, { width: window.innerWidth });
+    gsap.set(slides, { width: windowWidth });
 
     const horizontalScroll = gsap.to(container, {
-      x: () => -(containerWidth - window.innerWidth),
+      x: () => -(containerWidth - windowWidth),
       ease: "none",
       scrollTrigger: {
         trigger: container,
@@ -47,8 +54,9 @@ const HorizontalScroll = () => {
     return () => {
       lenis.destroy();
       horizontalScroll.kill();
+      window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div className="overflow-hidden h-screen w-screen">
