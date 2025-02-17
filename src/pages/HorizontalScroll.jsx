@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useRef, useState } from "react";
+import Header from "../components/website/Header";
 import '../styles/horizontal.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -24,7 +25,7 @@ const HorizontalScroll = () => {
     window.addEventListener('resize', handleResize);
 
     const container = containerRef.current;
-    const slides = container.querySelectorAll(".slide");
+    const slides = container.querySelectorAll(".story-slide");
     const containerWidth = slides.length * windowWidth;
 
     gsap.set(container, { width: containerWidth });
@@ -59,22 +60,39 @@ const HorizontalScroll = () => {
   }, [windowWidth]);
 
   return (
-    <div className="overflow-hidden h-screen w-screen">
-      <div ref={containerRef} className="flex h-screen">
-        <div className="slide">
-          Slide 1
-        </div>
-        <div className="slide">
-          Slide 2
-        </div>
-        <div className="slide">
-          Slide 3
-        </div>
-        <div className="slide">
-          Slide 4
+
+    <div className="story-wrapper">
+
+      <div className="story-upper">
+        <h1>Иван</h1>
+        <p>fhafhafpapjijpipiajpfj</p>
+      </div>
+      <div className="overflow-hidden h-screen w-screen">
+        <div ref={containerRef} className="story-flex h-screen">
+          <div className="story-slide">
+            <p>
+            Slide 1
+            </p>
+          </div>
+          <div className="story-slide">
+          <p>
+            Slide 2
+            </p>
+          </div>
+          <div className="story-slide">
+          <p>
+            Slide 3
+            </p>
+          </div>
+          <div className="story-slide">
+            <div className="story-slide-text">
+              <p>Slide 4</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   );
 };
 

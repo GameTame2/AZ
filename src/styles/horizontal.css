@@ -1,8 +1,18 @@
-/* Global Reset */
-html,
-body {
-  margin: 0;
-  padding: 0;
+.story-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.story-upper h1 {
+  font-size: 3rem;
+}
+
+.story-logo {
+  max-height: 100px;
+  z-index: 100;
+  position: absolute;
 }
 
 .slide {
@@ -19,7 +29,7 @@ body {
 }
 
 /* Horizontal container setup */
-.flex {
+.story-flex {
   display: flex;
   flex-direction: row;
 }
@@ -33,35 +43,51 @@ body {
 }
 
 /* Specific slide colors */
-.flex .slide:nth-child(1) {
+.story-flex .story-slide:nth-child(1) {
   background-color: blue;
   color: white;
 }
 
-.flex .slide:nth-child(2) {
+.story-flex .story-slide:nth-child(2) {
   background-color: red;
   color: white;
 }
 
-.flex .slide:nth-child(3) {
+.story-flex .story-slide:nth-child(3) {
   background-color: green;
   color: white;
 }
 
-.flex .slide:nth-child(4) {
+.story-flex .story-slide:nth-child(4) {
   background-color: yellow;
   color: black;
 }
 
+
+.story-flex .story-slide:nth-child(4) {
+  background-color: yellow;
+  color: black;
+}
+
+@keyframes cursor {
+  50% {border-color: transparent;}
+}
+
+@keyframes typing {
+  from {width: 0;}
+}
+
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .flex {
+  .story-flex {
     flex-direction: column; /* Switch to vertical layout on smaller screens */
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: hidden; /* Disable horizontal scrolling */
   }
 
-  .slide {
+  .story-slide {
     width: 100vw; /* Full width for vertical layout */
     height: 100vh; /* Full height for each slide */
     font-size: 6vw; /* Larger font size for smaller screens */
@@ -71,5 +97,55 @@ body {
 @media (max-width: 480px) {
   .slide {
     font-size: 8vw; /* Even larger font size for very small screens */
+  }
+}
+
+
+#story-container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.story-horizontal-section {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-horizontal-section:nth-child(1) {
+  background-color: red;
+}
+
+.story-heading {
+  font-family: "Oswald", sans-serif;
+  font-size: 8vw;
+  font-weight: 300;
+  color: white;
+  letter-spacing: 1vw;
+  text-transform: uppercase;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+  #story-container {
+    flex-direction: column; /* Stack sections vertically */
+    width: 100%; /* Ensure full width */
+    height: auto; /* Allow natural height */
+  }
+
+  .story-horizontal-section {
+    width: 100%; /* Full width */
+    height: 100vh; /* Full height */
+  }
+
+  .story-heading {
+    font-size: 12vw; /* Adjust font size for mobile */
   }
 }

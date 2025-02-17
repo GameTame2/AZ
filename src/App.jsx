@@ -4,7 +4,6 @@ import Website from './pages/Website.jsx';
 import Quiz from './pages/Quiz.jsx';
 import HorizontalScroll from './pages/HorizontalScroll.jsx';
 import ScrollSection from "./components/quiz/ScrollSection.jsx";
-import Story from "./pages/Story.jsx";
 
 function App() {
   return (

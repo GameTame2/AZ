@@ -75,23 +75,23 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
     let message = "Your talent is unknown!";
     if (result["math"] >= 8) {
-      message = "You are a mathematician!";
+      message = "math";
     } else if (result["chem"] >= 6) {
-      message = "You are a chemist!";
+      message = "chem";
     } else if (result["geo"] >= 6) {
-      message = "You are a geographer!";
+      message = "geo";
     } else if (result["bio"] >= 6) {
-      message = "You are a biologist!";
+      message = "bio";
     } else if (result["journal"] >= 7) {
-      message = "You are a journalist!";
+      message = "journal";
     } else if (result["history"] >= 6) {
-      message = "You are a historian!";
+      message = "history";
     } else if (result["ped"] >= 6) {
-      message = "You are a pedagogue!";
+      message = "ped";
     } else if (result["med"] >= 6) {
-      message = "You are a medician!";
+      message = "med";
     } else if (result["art"] >= 6) {
-      message = "You are an artist!";
+      message = "art";
     }
 
     setFinalResultMessage(message);

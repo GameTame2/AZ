@@ -42,6 +42,45 @@ header {
     color: #000;
 }
 
+.right-header-ul li {
+  padding: 5px 10px;
+}
+
+.right-header-ul li:nth-child(3) {
+  background-color: #779C6C;
+  border-radius: 10px;
+}
+
+/*popup*/
+
+.popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  background-color: #ffffff8f;
+  z-index: 100;
+}
+
+.popup-inner {
+  margin: 10vh 20vw;
+  background-color: #9bc090;
+  padding: 5rem;
+  height: 60vh;
+  border-radius: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.popup-inner img {
+  align-self: center;
+  max-width: 5rem;
+}
+
 /*hero*/
 .hero {
     padding: 0 11.5%;

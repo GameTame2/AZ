@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CameraQuestions from "../components/quiz/CameraQuestions.jsx";
-import Test from "../components/quiz/Test.jsx";
 import ScrollSection from "../components/quiz/ScrollSection.jsx";
+import Header from "../components/website/Header.jsx"
 import "../styles/quiz.css";
 
 function Quiz() {
@@ -21,6 +21,12 @@ function Quiz() {
 
   return (
     <>
+
+      <header className="quiz-header">
+        <a href="/">
+          <img src="src/img/logo.png" alt="logo" className="quiz-logo"/>
+        </a>
+      </header>
 
       <CameraQuestions onCalculateFinalResults={handleFinalResults} />
 
