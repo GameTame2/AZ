@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import Man from '../../../public/Man'
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import Man from '../../../public/Man';
 import '../../styles/website.css';
 
 function Face() {

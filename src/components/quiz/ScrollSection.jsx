@@ -1,8 +1,30 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Art from './jobs/Art';
+import Biology from './jobs/Biology';
+import Chemistry from './jobs/Chemistry';
+import Geography from './jobs/Geography';
+import History from './jobs/History';
+import Journalism from './jobs/Journalism';
+import Math from './jobs/Math';
+import Medicine from './jobs/Medicine';
+import Ped from './jobs/Ped';
 import '../../styles/quiz.css';
 import quizData from '../../data/quiztwo.json';
+
+// Map component names to components
+const componentMap = {
+  Art: Art,
+  Biology: Biology,
+  Chemistry: Chemistry,
+  Geography: Geography,
+  History: History,
+  Journalism: Journalism,
+  Math: Math,
+  Medicine: Medicine,
+  Ped: Ped,
+};
 
 function ScrollSection({ onCalculateFinalResults = () => {} }) {
   const sectionRef = useRef(null);
@@ -75,23 +97,23 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
     let message = "Your talent is unknown!";
     if (result["math"] >= 8) {
-      message = "math";
+      message = "Math";
     } else if (result["chem"] >= 6) {
-      message = "chem";
+      message = "Chemistry";
     } else if (result["geo"] >= 6) {
-      message = "geo";
+      message = "Geography";
     } else if (result["bio"] >= 6) {
-      message = "bio";
+      message = "Biology";
     } else if (result["journal"] >= 7) {
-      message = "journal";
+      message = "Journalism";
     } else if (result["history"] >= 6) {
-      message = "history";
+      message = "History";
     } else if (result["ped"] >= 6) {
-      message = "ped";
+      message = "Ped";
     } else if (result["med"] >= 6) {
-      message = "med";
+      message = "Medicine";
     } else if (result["art"] >= 6) {
-      message = "art";
+      message = "Art";
     }
 
     setFinalResultMessage(message);
@@ -99,6 +121,9 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
   // Calculate the percentage of answered questions
   const progressPercentage = (answeredCount / quizData.length) * 100;
+
+  // Get the component to render based on finalResultMessage
+  const ResultComponent = componentMap[finalResultMessage];
 
   return (
     <section className="scroll-section-outer">
@@ -112,13 +137,13 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
                   <label key={key}>
                     <div>
                       <input
-                      type="radio"
-                      name={`question-${item.id}`}
-                      value={key}
-                      onChange={() => handleAnswer(item.id, item.answers[key])}
-                      checked={answers[item.id] === item.answers[key]}
-                    />
-                    {key}
+                        type="radio"
+                        name={`question-${item.id}`}
+                        value={key}
+                        onChange={() => handleAnswer(item.id, item.answers[key])}
+                        checked={answers[item.id] === item.answers[key]}
+                      />
+                      {key}
                     </div>
                   </label>
                 ))}
@@ -127,21 +152,22 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
           ))}
         </div>
         <div className="progress-bar-container">
-        <div
-          className="progress-bar-fill"
-          style={{ width: `${progressPercentage}%` }}
-        ></div>
-      </div>
+          <div
+            className="progress-bar-fill"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+        </div>
       </div>
 
       {/* Progress Bar */}
-      
 
-      <a onClick={calculateFinalResults} className="quiz-button">Calculate</a>
+      <a onClick={calculateFinalResults} className="quiz-button">Пресметни</a>
 
       {finalResultMessage && (
         <div className="result-message">
           <h2>{finalResultMessage}</h2>
+          {/* Render the component dynamically */}
+          {ResultComponent && <ResultComponent />}
         </div>
       )}
     </section>

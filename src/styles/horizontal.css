@@ -1,151 +1,80 @@
 .story-wrapper {
+  background-color: #2a2a2a;
+  color: #e2e2e2;
+}
+
+.story-upper {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  height: 15vh;
 }
 
-.story-upper h1 {
-  font-size: 3rem;
+.story-upper img {
+  height: 90%;
 }
 
-.story-logo {
-  max-height: 100px;
-  z-index: 100;
+.story-first {
+  height: 85vh;
+}
+
+.story-first {
+  display: flex;
+}
+
+.story-first-left {
+  width: 50vw;
+  position: relative;
+}
+
+.story-first-left img{
   position: absolute;
+  max-width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.slide {
+.story-first-left canvas{
+  width: 100%;
+}
+
+.story-first-right {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh; /* Matches the viewport height */
-  width: 100%; /* Adjusted to 100% of container width */
-  text-align: center;
-  font-size: 4vw; /* Font size adjusts with the screen width */
-  font-weight: bold;
-  transition: font-size 0.3s ease; /* Smooth font resizing */
 }
 
-/* Horizontal container setup */
-.story-flex {
-  display: flex;
-  flex-direction: row;
+.story-first-right h1 {
+  margin: 0;
 }
 
-.h-screen {
-  height: 100vh;
+.story-first-right h1 span {
+  font-size: 3vw;
 }
 
-.w-screen {
-  width: 100vw;
+.reveal {
+  padding-left: 30%;
+  padding-right: 10%;
+  background-color: #2A2A2A;
 }
 
-/* Specific slide colors */
-.story-flex .story-slide:nth-child(1) {
-  background-color: blue;
-  color: white;
+.story-first-right .reveal-text {
+  color: #fff;
 }
 
-.story-flex .story-slide:nth-child(2) {
-  background-color: red;
-  color: white;
-}
-
-.story-flex .story-slide:nth-child(3) {
-  background-color: green;
-  color: white;
-}
-
-.story-flex .story-slide:nth-child(4) {
-  background-color: yellow;
-  color: black;
-}
-
-
-.story-flex .story-slide:nth-child(4) {
-  background-color: yellow;
-  color: black;
-}
-
-@keyframes cursor {
-  50% {border-color: transparent;}
-}
-
-@keyframes typing {
-  from {width: 0;}
+.reveal-text {
+  font-weight: 800;
+  font-size: clamp(3rem, 7.5vw, 15rem);
+  line-height: clamp(3rem, 7.5vw, 15rem);
+  color: #2a2a2a;
+  filter: drop-shadow(0 0 0.06rem rgb(255, 255, 255));
 }
 
 
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-flex {
-    flex-direction: column; /* Switch to vertical layout on smaller screens */
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Disable horizontal scrolling */
-  }
-
-  .story-slide {
-    width: 100vw; /* Full width for vertical layout */
-    height: 100vh; /* Full height for each slide */
-    font-size: 6vw; /* Larger font size for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .slide {
-    font-size: 8vw; /* Even larger font size for very small screens */
-  }
-}
-
-
-#story-container {
-  height: 100vh;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.story-horizontal-section {
-  background-color: black;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.story-horizontal-section:nth-child(1) {
-  background-color: red;
-}
-
-.story-heading {
-  font-family: "Oswald", sans-serif;
-  font-size: 8vw;
-  font-weight: 300;
-  color: white;
-  letter-spacing: 1vw;
-  text-transform: uppercase;
-}
-
-/* Mobile Styles */
-@media (max-width: 767px) {
-  #story-container {
-    flex-direction: column; /* Stack sections vertically */
-    width: 100%; /* Ensure full width */
-    height: auto; /* Allow natural height */
-  }
-
-  .story-horizontal-section {
-    width: 100%; /* Full width */
-    height: 100vh; /* Full height */
-  }
-
-  .story-heading {
-    font-size: 12vw; /* Adjust font size for mobile */
+@media screen and (max-width: 500px) {
+  .reveal {
+    padding-left: 10px;
   }
 }
