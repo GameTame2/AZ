@@ -9,7 +9,8 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
   const [runningMode, setRunningMode] = useState('IMAGE');
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const videoWidth = 660;
+  const videoWidth = window.innerWidth * 0.5;
+
 
   // To store results dynamically
   const [result, setResult] = useState({});
@@ -145,31 +146,31 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       // Egg-shaped or Equilateral Pentagon face
       const cheekboneWidth = faceWidth;
       const jawlineWidth = points.rightMouthCorner.x - points.leftMouthCorner.x;
-      newResult['26'] = cheekboneWidth > jawlineWidth ? 'math' : '';
+      newResult['26'] = cheekboneWidth > jawlineWidth ? ['math', 'bio'] : '';
 
       // Low or High Eyebrows
       const eyebrowHeight = points.middleEyebrows.y - (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
-      newResult['37'] = eyebrowHeight > 0.05 ? 'geo' : '';
+      newResult['37'] = eyebrowHeight > 0.05 ? 'geo' : 'art';
 
       // Short or Long Eyebrows
       const eyebrowWidth = Math.abs(points.leftEyebrow.x - points.rightEyebrow.x);
-      newResult['43'] = eyebrowWidth > 0.2 ? '' : '';
+      newResult['43'] = eyebrowWidth > 0.2 ? ['journal', 'journal', 'history', 'ped', 'art'] : '';
 
       // Lower eyelid touching iris
       const irisDistance = Math.abs(points.leftEye.y - points.rightEye.y);
-      newResult['60'] = irisDistance < 0.03 ? 'geo' : '';
+      newResult['60'] = irisDistance < 0.03 ? ['geo'] : '';
 
       // Narrow or Wide Nose Base
       const noseWidth = Math.abs(points.noseBase.x - points.leftCheekbone.x);
-      newResult['61'] = noseWidth < 0.15 ? 'geo' : '';
+      newResult['61'] = noseWidth < 0.15 ? 'geo' : 'med';
 
       // Nose base above or below the pupil
       const noseToPupilDistance = Math.abs(points.noseBase.y - points.leftEye.y);
-      newResult['65'] = noseToPupilDistance > 0.05 ? 'chem' : '';
+      newResult['65'] = noseToPupilDistance > 0.05 ? ['chem', 'bio', 'history', 'med'] : '';
 
       // Overall or Split Nose Tip
       const noseTipOffset = Math.abs(points.noseTip.x - points.noseBase.x);
-      newResult['68'] = noseTipOffset < 0.02 ? '' : '';
+      newResult['68'] = noseTipOffset < 0.02 ? '' : ['history', 'ped', 'med'];
 
       // Wide or Narrow Nose Bridge
       const noseBridgeWidth = Math.abs(points.noseBridge.x - points.noseTip.x);
@@ -177,14 +178,14 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Narrow or Wide Lips
       const mouthWidth = Math.abs(points.rightMouthCorner.x - points.leftMouthCorner.x);
-      newResult['93'] = mouthWidth < 0.2 ? '' : '';
+      newResult['93'] = mouthWidth < 0.2 ? 'journal' : '';
 
       // Raised or Dropped Mouth Corners
       const mouthCornerHeight = Math.abs(points.leftMouthCorner.y - points.rightMouthCorner.y);
-      newResult['97'] = mouthCornerHeight < 0.03 ? '' : '';
+      newResult['97'] = mouthCornerHeight < 0.03 ? 'journal' : '';
 
       // Protruding or Sloping Chin
-      newResult['112'] = points.chin.y < points.middleEyebrows.y ? '' : '';
+      newResult['112'] = points.chin.y < points.middleEyebrows.y ? ['journal', 'history', 'med'] : '';
 
       // Update results dynamically
       setResult(prev => ({ ...prev, ...newResult }));
@@ -199,6 +200,13 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
     // Iterate over the values in the newResult object
     Object.values(newResult).forEach((value) => {
       // Increment the count for the value in the result object
+      if (value=="") return;
+      if (Array.isArray(value)) {
+        value.forEach((element) => {
+          finalResult[element] = (finalResult[element] || 0) + 1;
+        });
+        return;
+      }
       finalResult[value] = (finalResult[value] || 0) + 1;
     });
   
@@ -216,19 +224,40 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
   return (
     <div className="face-qs">
-      <h1>Face Detection with Selected Points</h1>
+      <h1>Стъпка 1: Сканирай лицето си!</h1>
       <section className="video">
         <div>
           <div style={{ position: 'relative' }}>
-            <video ref={videoRef} autoPlay playsInline />
-            <canvas ref={canvasRef} style={{ position: 'absolute', left: 0, top: 0 }} />
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            style={{
+              width: "100%",
+              height: "auto", // Maintain aspect ratio
+              display: "block",
+            }}
+          />
+            <canvas
+              ref={canvasRef}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%",
+                height: "100%", // Ensures the overlay stays on top of the video
+              }}
+            />
           </div>
-          <button id="video-button" onClick={measureFace}>
-            Measure
-          </button>
-          <button id='video-button' onClick={handleSubmit}>
-            Submit
-          </button>
+          <div className="camera-buttons">
+            <a className="quiz-button" onClick={measureFace}>
+              Измерване
+            </a>
+            <a className='quiz-button' onClick={handleSubmit}>
+              Готов!
+            </a>
+          </div>
+
         </div>
       </section>
     </div>

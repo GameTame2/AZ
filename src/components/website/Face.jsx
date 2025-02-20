@@ -1,47 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import Man from '../../../public/Man';
 import '../../styles/website.css';
 
 function Face() {
-
   return (
-      <div className="face">
-
-      <div id="large-face-box">
-        <img src="src\img\face.png" alt="face image" />
-      </div>
-
-      <div className="face-box" id="face-box-1">
-        <img className="face-img" src="src\img\gem1.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      <div className="face-box" id="face-box-2">
-        <img className="face-img" src="src\img\gem6.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      <div className="face-box" id="face-box-3">
-        <img className="face-img" src="src\img\gem3.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      <div className="face-box" id="face-box-4">
-        <img className="face-img" src="src\img\gem5.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      <div className="face-box" id="face-box-5">
-        <img className="face-img" src="src\img\gem2.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      <div className="face-box" id="face-box-6">
-        <img className="face-img" src="src\img\gem4.png" alt="icon" />
-        <p className="face-box-title">Наклонности</p>
-      </div>
-
-      </div>
-    
+    <div className="face">
+        <div className="face-title">
+            <h1>Запознайте се с <span className="face-name"><a href="/story">Иван</a></span></h1>
+            <p></p>
+        </div>
+        <Canvas>
+          <ambientLight/>
+          <Suspense fallback={null}>
+          <Man scale={2.5} position={[0, 0, 0]} />
+          </Suspense>
+        </Canvas>
+    </div>
   );
 }
 

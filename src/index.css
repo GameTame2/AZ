@@ -3,11 +3,16 @@
     --body-color: #EBE6CF;
     --box-color: #DED7B8;
     --white: #FFF;
-  }
+}
 
 body {
     cursor: url('img/cursor.png'), auto;
     overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'New';
+    src: url(./fonts/MDGROTESQUE-Regular.ttf);
 }
 
 a, button, [role="button"], input[type="submit"], input[type="button"], input[type="radio"], label {

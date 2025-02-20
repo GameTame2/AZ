@@ -6,17 +6,15 @@ function Footer() {
   return (
     <footer>
         <div className="footer-nav" id="footer-nav-1">
-            <a href="">link1 qf</a>
-            <a href="">link1 fq</a>
-            <a href="">link 41 ee</a>
+            <a href="/">Начало</a>
+            <a href="/quiz">Опознай себе си</a>
         </div>
         <div className="footer-middle">
             <img src="src\img\logo.png" alt="logo" />
         </div>
         <div className="footer-nav" id="footer-nav-2">
-            <a href="">link rqqer</a>
-            <a href="">link fa</a>
-            <a href="">link fafafa</a>
+            <a href="">Физиономия</a>
+            <a href="">Полезни връзки</a>
         </div>
     </footer>
   );

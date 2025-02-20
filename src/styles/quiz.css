@@ -1,3 +1,12 @@
+.quiz-header {
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-logo {
+  max-width: 100px;
+}
+
 .face-qs {
     display: flex;
     flex-direction: column;
@@ -71,3 +80,151 @@
   .quiz-box p {
     margin: 5px auto;
   }
+
+
+/*horizontal*/
+
+.scroll-section-outer {
+  overflow: hidden;
+}
+
+.scroll-section-inner {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 50vh;
+  gap: 10vw;
+  width: 2200vw;
+  padding: 25vh 0;
+
+}
+
+.scroll-section {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.quiz-button {
+  padding: 5px;
+  background-color: #a3ca97;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.scroll-section-outer .quiz-button {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.camera-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-headings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.scroll-section h3 {
+  font-size: 2rem;
+  max-width: 80%;
+  text-align: center;
+}
+
+.scroll-section label {
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+.scroll-section input {
+  margin-bottom: 1rem;
+}
+
+.scroll-section-middle {
+  position: relative;
+}
+
+.answered-count {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%,0);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.progress-bar-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  width: 70%;
+  height: 25px;
+  background-color: #ffffff; /* Background color of the progress bar container */
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5rem; /* Adjust spacing as needed */
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #76c7c0; /* Fill color of the progress bar */
+  transition: width 0.3s ease; /* Smooth transition for the width change */
+}
+
+.jobmodel {
+  position: relative;
+}
+
+.jobmodel canvas {
+  height: 100vh;
+  z-index: 100;
+}
+
+
+.arth1 {
+  position: absolute;
+  font-size: 15rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+
+.journal .arth1 {
+  font-size: 10rem;
+}
+
+.artp {
+  position: absolute;
+  font-size: 1.5rem;
+  text-align: center;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artp img {
+  width: 3rem;
+}
+
+.ped .arth1 {
+  top: 30%;
+}

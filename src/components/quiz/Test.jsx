@@ -5,6 +5,7 @@ const Test = ({ onCalculateFinalResults }) => {
   const [currentQuestions, setCurrentQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [finalResultMessage, setFinalResultMessage] = useState(""); // New state for result message
 
   useEffect(() => {
     setCurrentQuestions(quizData[currentIndex]);
@@ -44,6 +45,30 @@ const Test = ({ onCalculateFinalResults }) => {
 
     console.log(result);
     onCalculateFinalResults(result); // Send the result to the parent
+
+    // Check the category count and set a message
+    let message = "Your talent is unknown!";
+    if (result["math"] >= 8) {
+      message = "You are a mathematician!";
+    } else if (result["chem"] >= 6) {
+      message += "You are a chemist!";
+    } else if (result["geo"] >= 6) {
+      message += "You are a geograph!";
+    } else if (result["bio"] >= 6) {
+      message += "You are a biologist!";
+    } else if (result["journal"] >= 7) {
+      message += "You are a journalist!";
+    } else if (result["history"] >= 6) {
+      message += "You are a historian!";
+    } else if (result["ped"] >= 6) {
+      message += "You are a pedagog!";
+    } else if (result["med"] >= 6) {
+      message += "You are a medician!";
+    } else if (result["art"] >= 6) {
+      message += "You are an artist!";
+    }
+
+    setFinalResultMessage(message);
   };
 
   return (
@@ -84,6 +109,13 @@ const Test = ({ onCalculateFinalResults }) => {
           <button onClick={calculateFinalResults}>Calculate</button>
         </div>
       </div>
+
+      {/* Display the result message */}
+      {finalResultMessage && (
+        <div className="result-message">
+          <h2>{finalResultMessage}</h2>
+        </div>
+      )}
     </>
   );
 };
