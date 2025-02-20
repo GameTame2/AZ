@@ -14,7 +14,7 @@ function Footer() {
         </div>
         <div className="footer-nav" id="footer-nav-2">
             <a href="">Физиономия</a>
-            <a href="">Полезни връзки</a>
+            <a href="">За нас</a>
         </div>
     </footer>
   );
