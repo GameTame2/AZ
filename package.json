@@ -12,8 +12,8 @@
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@mediapipe/tasks-vision": "^0.10.18",
-    "@react-three/drei": "^9.121.4",
-    "@react-three/fiber": "^8.17.14",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "@studio-freight/lenis": "^1.0.42",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tensorflow-models/facemesh": "^0.0.4",

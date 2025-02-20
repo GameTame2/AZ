@@ -13,8 +13,8 @@ function Header() {
         </div>
         <div className="right-header">
             <ul className="right-header-ul">
-                <li><a href="/">Начало.</a></li>
-                <li><a onClick={() => setOpenPopup(true)}>Обяснение</a></li>
+                <li><a href="/">Начало</a></li>
+                <li><a onClick={() => setOpenPopup(true)}>Още нещо</a></li>
                 <li><a href="/quiz">Опознай себе си</a></li>
             </ul>
         </div>

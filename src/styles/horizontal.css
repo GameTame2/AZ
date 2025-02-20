@@ -65,8 +65,8 @@
 
 .reveal-text {
   font-weight: 800;
-  font-size: clamp(3rem, 7.5vw, 15rem);
-  line-height: clamp(3rem, 7.5vw, 15rem);
+  font-size: clamp(3rem, 4vw, 15rem);
+  line-height: clamp(3rem, 4vw, 15rem);
   color: #2a2a2a;
   filter: drop-shadow(0 0 0.06rem rgb(255, 255, 255));
 }
