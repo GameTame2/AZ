@@ -94,7 +94,7 @@ export default function Features() {
 
         <section className="intro">
           <h1>
-            На четири стъпки от себеопознаването си!
+            Намираш се на три стъпки от себеопознаването си!
           </h1>
         </section>
 
