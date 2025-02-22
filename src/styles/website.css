@@ -126,7 +126,7 @@ header {
 
 .hero-middle h2{
   max-width: 50ch;
-  font-size: 1.75rem;
+  font-size: clamp(1rem, 1.75vw, 5rem);
   font-weight: 400;
   margin: 3rem 0;
 }

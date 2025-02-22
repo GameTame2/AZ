@@ -6,7 +6,7 @@
 }
 
 body {
-    cursor: url('img/cursor.png'), auto;
+    cursor: url('img/cursor.png') 5 5, auto;
     overflow-x: hidden;
 }
 
