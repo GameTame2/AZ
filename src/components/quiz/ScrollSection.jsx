@@ -124,14 +124,18 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
   // Get the component to render based on finalResultMessage
   const ResultComponent = componentMap[finalResultMessage];
+  
 
   return (
     <section className="scroll-section-outer">
-    <Biology />
       <div ref={triggerRef} className="scroll-section-middle">
         <div ref={sectionRef} className="scroll-section-inner">
           {quizData.map((item) => (
             <div className="scroll-section" key={item.id}>
+              <div className="images-wrapper">
+                <div><img src={`src/img/quiz/${item.id}_a.png`} onError={(event) => event.target.style.display = "none"}/></div>
+                <div><img src={`src/img/quiz/${item.id}_b.png`} onError={(event) => event.target.style.display = "none"}/></div>
+              </div>
               <h3>{item.question}</h3>
               <form>
                 {Object.keys(item.answers).map((key) => (

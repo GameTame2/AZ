@@ -158,6 +158,16 @@
   position: relative;
 }
 
+.images-wrapper {
+  display: flex;
+  gap: 5rem;
+}
+
+.images-wrapper img {
+  width: 50px;
+  transform: scale(3);
+}
+
 .answered-count {
   position: absolute;
   top: 10px;
