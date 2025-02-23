@@ -9,7 +9,7 @@ function Header() {
     <>
     <header>
         <div className="left-header">
-            <img src="src\img\logo.png" alt="" />
+            <img src="src\img\face.png" alt="" />
         </div>
         <div className="right-header">
             <ul className="right-header-ul">

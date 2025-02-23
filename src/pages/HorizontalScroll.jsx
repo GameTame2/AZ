@@ -14,7 +14,7 @@ const HorizontalScroll = () => {
 
       <div className="story-upper">
         <a href="/">
-          <img src="src/img/logo-white.png" alt="logo" className="quiz-logo"/>
+          <img src="src/img/face-white.png" alt="face" className="quiz-logo"/>
         </a>
       </div>
 

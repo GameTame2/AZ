@@ -22,7 +22,7 @@ function Quiz() {
     <>
       <header className="quiz-header">
         <a href="/">
-          <img src="src/img/logo.png" alt="logo" className="quiz-logo"/>
+          <img src="src/img/face.png" alt="logo" className="quiz-logo"/>
         </a>
       </header>
 
