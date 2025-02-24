@@ -73,7 +73,8 @@ header {
   flex-direction: column;
   row-gap: 3rem;
   font-size: 1.5rem;
-  text-align: center;
+  overflow-y: scroll;
+  text-align: justify;
 }
 
 .popup-inner img {
@@ -139,7 +140,7 @@ header {
     padding: 0 11.5%;
     display: flex;
     justify-content: space-between;
-    margin: 5vh 0;
+    margin: 2vh 0;
 }
 
 .hero-title {
@@ -235,6 +236,12 @@ header {
 .face-name a {
   text-decoration: none;
   color: #779C6C;
+  transform: scale(1);
+  transition: transform 1s ease;
+}
+
+.face-name a:hover {
+  transform: scale(1.2);
 }
 
 .face canvas {

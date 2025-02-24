@@ -4,14 +4,12 @@
 }
 
 .story-upper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15vh;
+  padding-left: 10vw;
 }
 
 .story-upper img {
-  height: 90%;
+  max-height: 100px;
+  margin: 2vh auto;
 }
 
 .story-first {
@@ -72,7 +70,7 @@
 }
 
 .spacing {
-  height: 5vh;
+  height: 15vh;
 }
 
 

@@ -5,6 +5,12 @@
 
 .quiz-logo {
   max-width: 100px;
+  transform: scale(1);
+  transition: transform 1s ease;
+}
+
+.quiz-logo:hover {
+  transform: scale(1.1);
 }
 
 .face-qs {

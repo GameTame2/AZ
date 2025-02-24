@@ -10,7 +10,7 @@ function Footer() {
             <a href="/quiz">Опознай себе си</a>
         </div>
         <div className="footer-middle">
-            <img src="src\img\face.png" alt="face" />
+            <img src="src\img\Face_logo_black.png" alt="face" />
         </div>
         <div className="footer-nav" id="footer-nav-2">
             <a href="">Физиономия</a>

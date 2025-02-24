@@ -4,6 +4,7 @@ import Website from './pages/Website.jsx';
 import Quiz from './pages/Quiz.jsx';
 import HorizontalScroll from './pages/HorizontalScroll.jsx';
 import ScrollSection from "./components/quiz/ScrollSection.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/story" element={<HorizontalScroll />} />
             <Route path="/scroll" element={<ScrollSection />} />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </BrowserRouter>
       </Suspense>
