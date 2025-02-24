@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { useEffect, useRef, useState } from "react";
 import Man from '../../public/Man';
 import TextReveal from './TextReveal'
 import '../styles/horizontal.css';
@@ -14,13 +13,13 @@ const HorizontalScroll = () => {
 
       <div className="story-upper">
         <a href="/">
-          <img src="src/img/Face_logo.png" alt="face" className="quiz-logo"/>
+          <img src="/images/Face_logo.png" alt="face" className="quiz-logo"/>
         </a>
       </div>
 
       <div className="story-first">
         <div className="story-first-left">
-          <img src="src/img/modelbg.png" alt="bg" />
+          <img src="/images/modelbg.png" alt="bg" />
           <Canvas>
               <ambientLight/>
               <Suspense fallback={null}>

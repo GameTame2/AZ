@@ -7,10 +7,11 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
   const [faceLandmarker, setFaceLandmarker] = useState(null);
   const [runningMode, setRunningMode] = useState('IMAGE');
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(true); // New state variable
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const videoWidth = window.innerWidth * 0.5;
-
 
   // To store results dynamically
   const [result, setResult] = useState({});
@@ -189,18 +190,17 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Update results dynamically
       setResult(prev => ({ ...prev, ...newResult }));
-    console.log(newResult);
+      console.log(newResult);
     }
   }, [faceLandmarker]);
 
-
   function calculateFinalResults(newResult) {
     const finalResult = {};
-  
+
     // Iterate over the values in the newResult object
     Object.values(newResult).forEach((value) => {
       // Increment the count for the value in the result object
-      if (value=="") return;
+      if (value == "") return;
       if (Array.isArray(value)) {
         value.forEach((element) => {
           finalResult[element] = (finalResult[element] || 0) + 1;
@@ -209,57 +209,59 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       }
       finalResult[value] = (finalResult[value] || 0) + 1;
     });
-  
+
     return finalResult;
   }
-  
+
   // Usage in the button's onClick handler
   const handleSubmit = useCallback(() => {
     const finalResults = calculateFinalResults(result); // Use the current `result` state
     console.log("Camera Results:", finalResults); // Log or use finalResults as needed
     onCalculateFinalResults(finalResults);
-  }, [result]);
-
-  
+    setIsOverlayVisible(true);
+    setIsVideoVisible(false); // Hide the video section
+  }, [result, onCalculateFinalResults]);
 
   return (
     <div className="face-qs">
-      <h1>Стъпка 1: Сканирай лицето си!</h1>
-      <section className="video">
-        <div>
-          <div style={{ position: 'relative' }}>
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            style={{
-              width: "100%",
-              height: "auto", // Maintain aspect ratio
-              display: "block",
-            }}
-          />
-            <canvas
-              ref={canvasRef}
-              style={{
-                position: "absolute",
-                left: 0,
-                top: 0,
-                width: "100%",
-                height: "100%", // Ensures the overlay stays on top of the video
-              }}
-            />
+      <h1>Опознай таланта си!</h1>
+      <p>1. Застани пред камерата, така че лицето ти да е в рамката и <strong> да не е наклонено.</strong> 2. Натисни бутон "Измерване" 3. При поява на точки по лицето натисни бутон "Готов!" 4. Започни с тестовите въпроси 5. След като си отговорил на всички въпроси, натисни бутон "Аз съм?"</p>
+      {isVideoVisible && ( // Conditionally render the video section
+        <section className="video">
+          <div>
+            <div style={{ position: 'relative' }}>
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                style={{
+                  width: "100%",
+                  height: "auto", // Maintain aspect ratio
+                  display: "block",
+                }}
+              />
+              <canvas
+                ref={canvasRef}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: "100%",
+                  height: "100%", // Ensures the overlay stays on top of the video
+                }}
+              />
+            </div>
+            <div className="camera-buttons">
+              <a className="quiz-button" onClick={measureFace}>
+                Измерване
+              </a>
+              <a className='quiz-button' onClick={handleSubmit}>
+                Готов!
+              </a>
+            </div>
           </div>
-          <div className="camera-buttons">
-            <a className="quiz-button" onClick={measureFace}>
-              Измерване
-            </a>
-            <a className='quiz-button' onClick={handleSubmit}>
-              Готов!
-            </a>
-          </div>
-
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

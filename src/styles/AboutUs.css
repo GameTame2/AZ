@@ -1,0 +1,48 @@
+.about-us{
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2a;
+}
+
+.about-us-container {
+    display: flex;
+    margin-top: 5vh;
+}
+
+
+.about-us-arda, .about-us-simeon {
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+}
+
+.about-us-arda img, .about-us-simeon img {
+    max-width: 60vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arda-bg, .simeon-bg {
+    overflow: visible;
+}
+
+.about-us-arda h1, .about-us-simeon h1 {
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 12.5%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 2.5vw;
+}
+
+.about-us-title {
+    font-size: 3vw;
+    color: white;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+}

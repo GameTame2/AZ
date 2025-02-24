@@ -6,13 +6,13 @@ function Hero() {
   return (
     <div className="hero">
       <div className="hero-left">
-        <img src="src\img\arrow4.png" alt="arrow-left" />
+        <img src="/images/arrow4.png" alt="arrow-left" />
       </div>
       <div className="hero-middle">
         <div className="hero-title">
           <div className="crown-group">
-            <img src="src\img\sun.png" alt="sun" id='crown-sun' />
-            <img src="src\img\crown1.png" alt="crown" className='crown-first'/>
+            <img src="/images/sun.png" alt="sun" id='crown-sun' />
+            <img src="/images/crown1.png" alt="crown" className='crown-first'/>
           </div>
           <h1>АЗ</h1>
         </div>
@@ -20,7 +20,7 @@ function Hero() {
         
       </div>
       <div className="hero-right">
-        <img src="src\img\arrow5.png"/>
+        <img src="/images/arrow5.png"/>
       </div>
     </div>
   );

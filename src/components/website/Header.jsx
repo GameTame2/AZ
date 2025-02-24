@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/website.css';
+import { Link } from "react-router-dom";
 
 function Header() {
   const [openPopup, setOpenPopup] = useState(false);
@@ -11,7 +12,7 @@ function Header() {
     <>
       <header>
         <div className="left-header">
-          <img src="src\img\Face_logo_black.png" alt="" />
+          <img src="/images/Face_logo_black.png" alt="" />
         </div>
         <div className="hamburger" onClick={toggleMenu}>
           <div className={menuOpen ? "bar open" : "bar"}></div>
@@ -21,14 +22,14 @@ function Header() {
         <ul className={`right-header-ul ${menuOpen ? 'open' : ''}`}>
           <li><a href="/">Начало</a></li>
           <li><a onClick={() => setOpenPopup(true)}>Още нещо</a></li>
-          <li><a href="/quiz">Опознай себе си</a></li>
+          <li><Link to="/quiz">Опознай себе си</Link></li>
         </ul>
       </header>
 
       {openPopup && (
         <div className="popup">
           <div className="popup-inner">
-            <img src="src\img\x.png" alt="close button" onClick={() => setOpenPopup(false)} />
+            <img src="/images/x.png" alt="close button" onClick={() => setOpenPopup(false)} />
             <p>Физиогномиката е науката за изучаване на лицето и изразите му с цел разпознаване на характера и личността на човек. Тази практика има дълга история и се свързва с древни цивилизации като Китай, Гърция и Египет. <br /> Според физиогномиката, лицето е като "карта" на вътрешния свят на човека, а различните черти, като формата на устата, носа, челото и очите, могат да разкрият тайни за неговия темперамент и поведение. <br />
 
 Например, ако човек има широко чело, това може да показва интелигентност или склонност към анализиране на ситуации. Ако устата е по-голяма, може да се счита за знак за комуникативност и изразителност. В същото време, ако очите са малки и стиснати, това може да се тълкува като индикатор за скритост или предпазливост.

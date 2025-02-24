@@ -22,7 +22,7 @@ function Quiz() {
     <>
       <header className="quiz-header">
         <a href="/">
-          <img src="src/img/Face_logo_black.png" alt="logo" className="quiz-logo"/>
+          <img src="/images/Face_logo_black.png" alt="logo" className="quiz-logo"/>
         </a>
       </header>
 
@@ -34,7 +34,7 @@ function Quiz() {
           <h1>Готови с камерата?</h1>
           <h1>Стъпка 2</h1>
           <a className="quiz-button" onClick={() => setShowTestQuestions(true)}>
-            Започнете с тестовите въпроси
+            Започни с тестовите въпроси
           </a>
         </div>
 

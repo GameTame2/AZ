@@ -6,7 +6,7 @@ function Cta() {
   return (
     <div className="cta">
       <Link to="/quiz">
-        <img src="src/img/cta.png" alt="cta-button" />
+        <img src="/images/cta.png" alt="cta-button" />
       </Link>
     </div>
   );

@@ -133,8 +133,8 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
           {quizData.map((item) => (
             <div className="scroll-section" key={item.id}>
               <div className="images-wrapper">
-                <div><img src={`src/img/quiz/${item.id}_a.png`} onError={(event) => event.target.style.display = "none"}/></div>
-                <div><img src={`src/img/quiz/${item.id}_b.png`} onError={(event) => event.target.style.display = "none"}/></div>
+                <div><img src={`/images/quiz/${item.id}_a.png`} onError={(event) => event.target.style.display = "none"}/></div>
+                <div><img src={`/images/quiz/${item.id}_b.png`} onError={(event) => event.target.style.display = "none"}/></div>
               </div>
               <h3>{item.question}</h3>
               <form>
@@ -166,7 +166,7 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
       {/* Progress Bar */}
 
-      <a onClick={calculateFinalResults} className="quiz-button">Пресметни</a>
+      <a onClick={calculateFinalResults} className="quiz-button">Аз съм?</a>
 
       {finalResultMessage && (
         <div className="result-message">

@@ -4,7 +4,8 @@
 }
 
 .story-upper {
-  padding-left: 10vw;
+  display: flex;
+  justify-content: center;
 }
 
 .story-upper img {

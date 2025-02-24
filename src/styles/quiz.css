@@ -21,6 +21,14 @@
     margin-bottom: 5vh;
 }
 
+.face-qs h1{
+  margin-bottom: 0;
+}
+
+.face-qs p {
+  margin-top: 5px;
+}
+
 .grid-container {
   margin: 10px 15%;
   display: flex;
@@ -92,6 +100,7 @@
 
 .scroll-section-outer {
   overflow: hidden;
+  padding-bottom: 5vh;
 }
 
 .scroll-section-inner {
@@ -114,6 +123,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 30px;
+  z-index: -11;
 }
 
 .quiz-button {
@@ -127,6 +137,7 @@
   font-size: 3rem;
   padding: 1rem;
   border-radius: 1rem;
+  margin-bottom: 5vh;
 }
 
 .camera-buttons {
@@ -166,12 +177,14 @@
 
 .images-wrapper {
   display: flex;
-  gap: 5rem;
+  gap:7.5rem;
 }
 
 .images-wrapper img {
+  position: relative;
   width: 50px;
-  transform: scale(3);
+  transform: scale(5);
+  z-index: -10;
 }
 
 .answered-count {
