@@ -94,9 +94,11 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
 
     console.log(result);
     onCalculateFinalResults(result);
+    const finalMessage = getFinalMessage();
+    setFinalResultMessage(finalMessage);
   };
 
-  function getFinalMessage(allResults) {
+  function getFinalMessage() {
     let message = "Your talent is unknown!";
     if (allResults["math"] >= 8) {
       message = "Math";
@@ -118,7 +120,6 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
       message = "Art";
     }
 
-    setFinalResultMessage(message);
     return message;
   }
 
@@ -172,11 +173,13 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
       <a onClick={calculateFinalResults} className="quiz-button">Аз съм?</a>
 
       
-        <div className="result-message">
-          <h2>{getFinalMessage(allResults)}</h2>
-          {/* Render the component dynamically */}
-          {ResultComponent && <ResultComponent />}
-        </div>
+        {finalResultMessage && (
+          <div className="result-message">
+            <h2>{finalResultMessage}</h2>
+            {/* Render the component dynamically */}
+            {ResultComponent && <ResultComponent />}
+          </div>
+        )}
     </section>
   );
 }
