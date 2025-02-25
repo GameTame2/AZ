@@ -3,12 +3,13 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import Man from '../../../public/Man';
 import '../../styles/website.css';
+import { Link } from "react-router-dom"
 
 function Face() {
   return (
     <div className="face">
         <div className="face-title">
-            <h1>Запознайте се с <span className="face-name"><a href="/story">Иван</a></span></h1>
+            <h1>Запознайте се с <span className="face-name"><Link to="/story">Иван</Link></span></h1>
             <p></p>
         </div>
         <Canvas>
