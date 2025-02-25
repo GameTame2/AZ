@@ -39,7 +39,7 @@ function Quiz() {
         </div>
 
         {showTestQuestions && (
-          <ScrollSection onCalculateFinalResults={handleFinalResults} />
+          <ScrollSection onCalculateFinalResults={handleFinalResults} allResults={result}/>
         )}
       </div>
     </>

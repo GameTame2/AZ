@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/website.css';
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -7,15 +8,15 @@ function Footer() {
     <div className='footer-wrapper'>
     <footer>
         <div className="footer-nav" id="footer-nav-1">
-            <a href="/">Начало</a>
-            <a href="/quiz">Опознай себе си</a>
+            <Link to="/">Начало</Link>
+            <Link to="https://forms.gle/ZhDP2MB2RWyPcwK96">Разкажи ми твоята история</Link>
         </div>
         <div className="footer-middle">
             <img src="/images/Face_logo_black.png" alt="face" />
         </div>
         <div className="footer-nav" id="footer-nav-2">
-            <a href="">История на Иван</a>
-            <a href="">За нас</a>
+            <Link to="/story">История на Иван</Link>
+            <Link to="/about">За нас</Link>
         </div>
     </footer>
     <p>Сайтът е изготвен от Арда Халибрям и Симеон Христов - ученици в 9 клас на средно училище "Отец Паисий", гр. Кърджали</p>

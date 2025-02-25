@@ -26,7 +26,7 @@ const componentMap = {
   Ped: Ped,
 };
 
-function ScrollSection({ onCalculateFinalResults = () => {} }) {
+function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const [currentQuestions, setCurrentQuestions] = useState([]);
@@ -94,30 +94,33 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
     console.log(result);
     onCalculateFinalResults(result);
+  };
 
+  function getFinalMessage(allResults) {
     let message = "Your talent is unknown!";
-    if (result["math"] >= 8) {
+    if (allResults["math"] >= 8) {
       message = "Math";
-    } else if (result["chem"] >= 6) {
+    } else if (allResults["chem"] >= 6) {
       message = "Chemistry";
-    } else if (result["geo"] >= 6) {
+    } else if (allResults["geo"] >= 6) {
       message = "Geography";
-    } else if (result["bio"] >= 6) {
+    } else if (allResults["bio"] >= 6) {
       message = "Biology";
-    } else if (result["journal"] >= 7) {
+    } else if (allResults["journal"] >= 7) {
       message = "Journalism";
-    } else if (result["history"] >= 6) {
+    } else if (allResults["history"] >= 6) {
       message = "History";
-    } else if (result["ped"] >= 6) {
+    } else if (allResults["ped"] >= 6) {
       message = "Ped";
-    } else if (result["med"] >= 6) {
+    } else if (allResults["med"] >= 6) {
       message = "Medicine";
-    } else if (result["art"] >= 6) {
+    } else if (allResults["art"] >= 6) {
       message = "Art";
     }
 
     setFinalResultMessage(message);
-  };
+    return message;
+  }
 
   // Calculate the percentage of answered questions
   const progressPercentage = (answeredCount / quizData.length) * 100;
@@ -168,13 +171,12 @@ function ScrollSection({ onCalculateFinalResults = () => {} }) {
 
       <a onClick={calculateFinalResults} className="quiz-button">Аз съм?</a>
 
-      {finalResultMessage && (
+      
         <div className="result-message">
-          <h2>{finalResultMessage}</h2>
+          <h2>{getFinalMessage(allResults)}</h2>
           {/* Render the component dynamically */}
           {ResultComponent && <ResultComponent />}
         </div>
-      )}
     </section>
   );
 }
