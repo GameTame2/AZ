@@ -8,6 +8,7 @@
 .about-us-container {
     display: flex;
     margin-top: 5vh;
+    overflow: hidden;
 }
 
 
@@ -36,14 +37,35 @@
     top: 12.5%;
     left: 50%;
     transform: translate(-50%);
-    font-size: 2.5vw;
+    font-size: 2rem;
 }
 
 .about-us-title {
-    font-size: 3vw;
+    font-size: 3rem;
     color: white;
     position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%);
+}
+
+.arda-img {
+    margin-top: 5vh;
+}
+
+@media screen and (max-width: 700px) {
+    .about-us-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-us-arda, .about-us-simeon {
+        height: 75vh;
+        width: 75vw;
+        position: relative;
+    }
+
+    .arda-img {
+        margin-top: 10vh;
+    }
 }

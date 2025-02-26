@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Man from '../../public/Man';
-import TextReveal from './TextReveal'
+import TextReveal from './TextReveal';
+import { Link } from "react-router-dom";
 import '../styles/horizontal.css';
 
 
@@ -32,10 +33,14 @@ const HorizontalScroll = () => {
         </div>
       </div>
 
+
       
       <TextReveal/>
       
       
+      <div className="story-cta"><Link to="/quiz"> Към теста &#8594;</Link></div>
+
+      <div className="spacing"></div>
     </div>
 
   );
