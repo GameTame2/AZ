@@ -106,30 +106,40 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
   
 
   function getFinalMessage() {
-    let message = "Your talent is unknown!";
+    let talents = [];
+    
     if (allResults["math"] >= 8) {
-      message = "Math";
-    } else if (allResults["chem"] >= 6) {
-      message = "Chemistry";
-    } else if (allResults["geo"] >= 6) {
-      message = "Geography";
-    } else if (allResults["bio"] >= 6) {
-      message = "Biology";
-    } else if (allResults["journal"] >= 7) {
-      message = "Journalism";
-    } else if (allResults["history"] >= 6) {
-      message = "History";
-    } else if (allResults["ped"] >= 6) {
-      message = "Ped";
-    } else if (allResults["med"] >= 6) {
-      message = "Medicine";
-    } else if (allResults["art"] >= 6) {
-      message = "Art";
+      talents.push("Math");
+    } 
+    if (allResults["chem"] >= 6) {
+      talents.push("Chemistry");
+    } 
+    if (allResults["geo"] >= 6) {
+      talents.push("Geography");
+    } 
+    if (allResults["bio"] >= 6) {
+      talents.push("Biology");
+    } 
+    if (allResults["journal"] >= 7) {
+      talents.push("Journalism");
+    } 
+    if (allResults["history"] >= 6) {
+      talents.push("History");
+    } 
+    if (allResults["ped"] >= 6) {
+      talents.push("Ped");
+    } 
+    if (allResults["med"] >= 6) {
+      talents.push("Medicine");
+    } 
+    if (allResults["art"] >= 6) {
+      talents.push("Art");
     }
-
+  
     console.log(allResults);
-    return message;
+    return talents.length > 0 ? talents : ["Your talent is unknown!"];
   }
+  
 
   // Calculate the percentage of answered questions
   const progressPercentage = (answeredCount / quizData.length) * 100;
@@ -181,13 +191,17 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
       <a onClick={calculateFinalResults} className="quiz-button">Аз съм?</a>
 
       
-        {finalResultMessage && (
-          <div className="result-message">
-            <h2>{finalResultMessage}</h2>
-            {/* Render the component dynamically */}
-            {ResultComponent && <ResultComponent />}
+          {finalResultMessage.length > 0 && (
+      <div className="result-message">
+        {finalResultMessage.map((talent) => (
+          <div key={talent}>
+            <h2>{talent}</h2>
+            {componentMap[talent] && React.createElement(componentMap[talent])}
           </div>
-        )}
+        ))}
+      </div>
+    )}
+
     </section>
   );
 }
