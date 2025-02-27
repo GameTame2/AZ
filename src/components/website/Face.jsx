@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
+import { Link } from "react-router-dom";
 import Man from '../../../public/Man';
 import '../../styles/website.css';
 import { Link } from "react-router-dom"

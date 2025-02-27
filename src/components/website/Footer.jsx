@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../styles/website.css';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function Footer() {
 
@@ -9,7 +9,7 @@ function Footer() {
     <footer>
         <div className="footer-nav" id="footer-nav-1">
             <Link to="/">Начало</Link>
-            <Link to="/quiz">Опознай себе си</Link>
+            <Link to="https://forms.gle/ZhDP2MB2RWyPcwK96">Разкажи ми твоята история</Link>
         </div>
         <div className="footer-middle">
             <img src="/images/Face_logo_black.png" alt="face" />

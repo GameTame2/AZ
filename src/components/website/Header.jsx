@@ -20,7 +20,7 @@ function Header() {
           <div className={menuOpen ? "bar open" : "bar"}></div>
         </div>
         <ul className={`right-header-ul ${menuOpen ? 'open' : ''}`}>
-          <li><a href="/">Начало</a></li>
+          <li><Link to="/">Начало</Link></li>
           <li><a onClick={() => setOpenPopup(true)}>Още нещо</a></li>
           <li><Link to="/quiz">Опознай себе си</Link></li>
         </ul>

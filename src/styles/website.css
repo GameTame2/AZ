@@ -484,11 +484,17 @@ footer {
   }
 
   footer {
+    display: flex;
     flex-direction: column;
   }
 
   .footer-middle {
     display: flex;
     justify-content: center;
+  }
+
+  .footer-wrapper p{
+    margin-top: 1rem;
+    max-width: 80%;
   }
 }

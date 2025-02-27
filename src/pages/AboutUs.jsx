@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import "../styles/aboutus.css"; // Regular CSS file
+import "../styles/aboutus.css";
 
 const AboutUs = () => {
 
@@ -14,12 +13,13 @@ const AboutUs = () => {
       <div className="about-us-container">
         <h1 className="about-us-title">За нас</h1>
         <div className="about-us-arda">
-          <img className="arda-bg" src="/images/hero-image-arda.png" alt="arda" />
+            <img className="arda-bg" src="/images/hero-image-arda.png" alt="arda" />
           <h1>АРДА ХАЛИБРЯМ</h1>
-          <img className="arda-img" src="/images/simeon.png" alt="arda image" />
+          <img className="arda-img" src="/images/arda.png" alt="arda image" />
         </div>
+
         <div className="about-us-simeon">
-          <img className="simeon-bg" src="/images/hero-image-simeon.png" alt="simeon" />
+            <img className="simeon-bg" src="/images/hero-image-simeon.png" alt="simeon" />
           <h1>СИМЕОН ХРИСТОВ</h1>
           <img className="simeon-img" src="/images/simeon.png" alt="simeon image" />
         </div>
