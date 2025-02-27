@@ -94,9 +94,16 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
 
     console.log(result);
     onCalculateFinalResults(result);
+  };
+
+  useEffect(() => {
+    
     const finalMessage = getFinalMessage();
     setFinalResultMessage(finalMessage);
-  };
+
+
+  }, [allResults]);
+  
 
   function getFinalMessage() {
     let message = "Your talent is unknown!";
@@ -120,6 +127,7 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
       message = "Art";
     }
 
+    console.log(allResults);
     return message;
   }
 
