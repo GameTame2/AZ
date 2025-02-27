@@ -64,6 +64,9 @@
 .quiz-steps {
   max-width: 50vw;
   text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 2rem;
 }
 
 .quiz-grid {

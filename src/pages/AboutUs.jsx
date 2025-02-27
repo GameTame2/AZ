@@ -24,6 +24,9 @@ const AboutUs = () => {
           <img className="simeon-img" src="/images/simeon.png" alt="simeon image" />
         </div>
       </div>
+      <div className="footer-about">
+        <p>Автори: Арда Халибрям и Симеон Христов - ученици в 9 клас на Средно училище "Отец Паисий", гр. Кърджали</p>
+      </div>
     </section>
   );
 };

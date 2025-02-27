@@ -29,7 +29,7 @@ const HorizontalScroll = () => {
           </Canvas>
         </div>
         <div className="story-first-right">
-          <h1 className='reveal-text'>Иван <br /> <span>28 години, счетоводител</span></h1>
+          <h1 className='reveal-text'>Иван <br /> <span>на 28 години, <br />профеция: счетоводител</span></h1>
         </div>
       </div>
 
