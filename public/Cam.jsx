@@ -7,27 +7,49 @@ Source: https://sketchfab.com/3d-models/dslr-camera-4b0f32666d1c4fabbb26aa3ced6b
 Title: DSLR Camera
 */
 
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import React from "react";
+import { useGLTF } from "@react-three/drei";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/cam.gltf')
+  const { nodes, materials } = useGLTF("/cam.gltf");
   return (
     <group {...props} dispose={null}>
       <group position={[-1.885, 0, 0]}>
         <group position={[0, 0, -0.334]}>
-          <mesh geometry={nodes.pasted__Camera_Body_pasted__lambert2_0.geometry} material={materials.pasted__lambert2} />
-          <mesh geometry={nodes.pasted__Camera_Body_pasted__lambert3_0.geometry} material={materials.pasted__lambert3} />
-          <mesh geometry={nodes.pasted__Camera_Body_lambert1_0.geometry} material={materials.lambert1} />
+          <mesh
+            geometry={nodes.pasted__Camera_Body_pasted__lambert2_0.geometry}
+            material={materials.pasted__lambert2}
+          />
+          <mesh
+            geometry={nodes.pasted__Camera_Body_pasted__lambert3_0.geometry}
+            material={materials.pasted__lambert3}
+          />
+          <mesh
+            geometry={nodes.pasted__Camera_Body_lambert1_0.geometry}
+            material={materials.lambert1}
+          />
         </group>
-        <group position={[0.719, 3.04, 1.923]} rotation={[-Math.PI / 2, -0.003, Math.PI]} scale={[2.4, 2.014, 2.382]}>
-          <mesh geometry={nodes.pasted__Lense_pasted__lambert2_0.geometry} material={materials.pasted__lambert2} />
-          <mesh geometry={nodes.pasted__Lense_lambert1_0.geometry} material={materials.lambert1} />
-          <mesh geometry={nodes.pasted__Lense_pasted__lambert3_0.geometry} material={materials.pasted__lambert3} />
+        <group
+          position={[0.719, 3.04, 1.923]}
+          rotation={[-Math.PI / 2, -0.003, Math.PI]}
+          scale={[2.4, 2.014, 2.382]}
+        >
+          <mesh
+            geometry={nodes.pasted__Lense_pasted__lambert2_0.geometry}
+            material={materials.pasted__lambert2}
+          />
+          <mesh
+            geometry={nodes.pasted__Lense_lambert1_0.geometry}
+            material={materials.lambert1}
+          />
+          <mesh
+            geometry={nodes.pasted__Lense_pasted__lambert3_0.geometry}
+            material={materials.pasted__lambert3}
+          />
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/cam.gltf')
+useGLTF.preload("/cam.gltf");

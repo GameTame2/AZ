@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
-import vision from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3';
-import '../../styles/quiz.css';
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
+import "../../styles/quiz.css";
 
 const CameraQuestions = ({ onCalculateFinalResults }) => {
   const { FaceLandmarker, FilesetResolver } = vision;
 
   const [faceLandmarker, setFaceLandmarker] = useState(null);
-  const [runningMode, setRunningMode] = useState('IMAGE');
+  const [runningMode, setRunningMode] = useState("IMAGE");
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
   const [isVideoVisible, setIsVideoVisible] = useState(true); // New state variable
   const videoRef = useRef(null);
@@ -20,17 +20,20 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
   useEffect(() => {
     const createFaceLandmarker = async () => {
       const filesetResolver = await FilesetResolver.forVisionTasks(
-        'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm'
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
       );
 
-      const landmarker = await FaceLandmarker.createFromOptions(filesetResolver, {
-        baseOptions: {
-          modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
-        },
-        outputFaceBlendshapes: true,
-        runningMode,
-        numFaces: 1,
-      });
+      const landmarker = await FaceLandmarker.createFromOptions(
+        filesetResolver,
+        {
+          baseOptions: {
+            modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task`,
+          },
+          outputFaceBlendshapes: true,
+          runningMode,
+          numFaces: 1,
+        }
+      );
 
       setFaceLandmarker(landmarker);
     };
@@ -55,10 +58,10 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
-          videoRef.current.addEventListener('loadeddata', predictWebcam);
+          videoRef.current.addEventListener("loadeddata", predictWebcam);
         }
       } catch (error) {
-        console.error('Error accessing webcam: ', error);
+        console.error("Error accessing webcam: ", error);
       }
     };
 
@@ -69,7 +72,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       if (videoRef.current && videoRef.current.srcObject) {
         const stream = videoRef.current.srcObject;
         const tracks = stream.getTracks();
-        tracks.forEach(track => track.stop());
+        tracks.forEach((track) => track.stop());
       }
     };
   }, [faceLandmarker]);
@@ -89,9 +92,9 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
 
-    if (runningMode === 'IMAGE') {
-      setRunningMode('VIDEO');
-      await faceLandmarker.setOptions({ runningMode: 'VIDEO' });
+    if (runningMode === "IMAGE") {
+      setRunningMode("VIDEO");
+      await faceLandmarker.setOptions({ runningMode: "VIDEO" });
     }
   }, [faceLandmarker, runningMode]);
 
@@ -101,7 +104,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
     const video = videoRef.current;
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
 
     const startTimeMs = performance.now();
     const results = await faceLandmarker.detectForVideo(video, startTimeMs);
@@ -127,10 +130,16 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
 
       // Draw points for visualization
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      Object.values(points).forEach(point => {
-        ctx.fillStyle = '#44623B';
+      Object.values(points).forEach((point) => {
+        ctx.fillStyle = "#44623B";
         ctx.beginPath();
-        ctx.arc(point.x * canvas.width, point.y * canvas.height, 5, 0, 2 * Math.PI);
+        ctx.arc(
+          point.x * canvas.width,
+          point.y * canvas.height,
+          5,
+          0,
+          2 * Math.PI
+        );
         ctx.fill();
       });
 
@@ -140,56 +149,73 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       // Example: Rectangle or Oval face
       const faceWidth = points.rightCheekbone.x - points.leftCheekbone.x;
       const faceHeight = points.chin.y - points.middleEyebrows.y;
-      newResult['7'] = faceWidth > faceHeight ? 'geo' : '';
-      newResult['18'] = faceWidth > faceHeight ? 'math' : '';
-      newResult['24'] = faceWidth > faceHeight ? 'chem' : '';
+      newResult["7"] = faceWidth > faceHeight ? "geo" : "";
+      newResult["18"] = faceWidth > faceHeight ? "math" : "";
+      newResult["24"] = faceWidth > faceHeight ? "chem" : "";
 
       // Egg-shaped or Equilateral Pentagon face
       const cheekboneWidth = faceWidth;
       const jawlineWidth = points.rightMouthCorner.x - points.leftMouthCorner.x;
-      newResult['26'] = cheekboneWidth > jawlineWidth ? ['math', 'bio'] : '';
+      newResult["26"] = cheekboneWidth > jawlineWidth ? ["math", "bio"] : "";
 
       // Low or High Eyebrows
-      const eyebrowHeight = points.middleEyebrows.y - (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
-      newResult['37'] = eyebrowHeight > 0.05 ? 'geo' : 'art';
+      const eyebrowHeight =
+        points.middleEyebrows.y -
+        (points.leftEyebrow.y + points.rightEyebrow.y) / 2;
+      newResult["37"] = eyebrowHeight > 0.05 ? "geo" : "art";
 
       // Short or Long Eyebrows
-      const eyebrowWidth = Math.abs(points.leftEyebrow.x - points.rightEyebrow.x);
-      newResult['43'] = eyebrowWidth > 0.2 ? ['journal', 'journal', 'history', 'ped', 'art'] : '';
+      const eyebrowWidth = Math.abs(
+        points.leftEyebrow.x - points.rightEyebrow.x
+      );
+      newResult["43"] =
+        eyebrowWidth > 0.2
+          ? ["journal", "journal", "history", "ped", "art"]
+          : "";
 
       // Lower eyelid touching iris
       const irisDistance = Math.abs(points.leftEye.y - points.rightEye.y);
-      newResult['60'] = irisDistance < 0.03 ? ['geo'] : '';
+      newResult["60"] = irisDistance < 0.03 ? ["geo"] : "";
 
       // Narrow or Wide Nose Base
       const noseWidth = Math.abs(points.noseBase.x - points.leftCheekbone.x);
-      newResult['61'] = noseWidth < 0.15 ? 'geo' : 'med';
+      newResult["61"] = noseWidth < 0.15 ? "geo" : "med";
 
       // Nose base above or below the pupil
-      const noseToPupilDistance = Math.abs(points.noseBase.y - points.leftEye.y);
-      newResult['65'] = noseToPupilDistance > 0.05 ? ['chem', 'bio', 'history', 'med'] : '';
+      const noseToPupilDistance = Math.abs(
+        points.noseBase.y - points.leftEye.y
+      );
+      newResult["65"] =
+        noseToPupilDistance > 0.05 ? ["chem", "bio", "history", "med"] : "";
 
       // Overall or Split Nose Tip
       const noseTipOffset = Math.abs(points.noseTip.x - points.noseBase.x);
-      newResult['68'] = noseTipOffset < 0.02 ? '' : ['history', 'ped', 'med'];
+      newResult["68"] = noseTipOffset < 0.02 ? "" : ["history", "ped", "med"];
 
       // Wide or Narrow Nose Bridge
       const noseBridgeWidth = Math.abs(points.noseBridge.x - points.noseTip.x);
-      newResult['75'] = noseBridgeWidth < 0.05 ? '' : 'geo';
+      newResult["75"] = noseBridgeWidth < 0.05 ? "" : "geo";
 
       // Narrow or Wide Lips
-      const mouthWidth = Math.abs(points.rightMouthCorner.x - points.leftMouthCorner.x);
-      newResult['93'] = mouthWidth < 0.2 ? 'journal' : '';
+      const mouthWidth = Math.abs(
+        points.rightMouthCorner.x - points.leftMouthCorner.x
+      );
+      newResult["93"] = mouthWidth < 0.2 ? "journal" : "";
 
       // Raised or Dropped Mouth Corners
-      const mouthCornerHeight = Math.abs(points.leftMouthCorner.y - points.rightMouthCorner.y);
-      newResult['97'] = mouthCornerHeight < 0.03 ? 'journal' : '';
+      const mouthCornerHeight = Math.abs(
+        points.leftMouthCorner.y - points.rightMouthCorner.y
+      );
+      newResult["97"] = mouthCornerHeight < 0.03 ? "journal" : "";
 
       // Protruding or Sloping Chin
-      newResult['112'] = points.chin.y < points.middleEyebrows.y ? ['journal', 'history', 'med'] : '';
+      newResult["112"] =
+        points.chin.y < points.middleEyebrows.y
+          ? ["journal", "history", "med"]
+          : "";
 
       // Update results dynamically
-      setResult(prev => ({ ...prev, ...newResult }));
+      setResult((prev) => ({ ...prev, ...newResult }));
       console.log(newResult);
     }
   }, [faceLandmarker]);
@@ -225,11 +251,18 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
   return (
     <div className="face-qs">
       <h1>Опознай таланта си!</h1>
-      <p className='quiz-steps'>1. Застани пред камерата, така че лицето ти да е в рамката и <strong> да не е наклонено.</strong> <br />2. Натисни бутон "Измерване". <br />3. При поява на точки по лицето натисни бутон "Готов!". <br />4. Започни с тестовите въпроси. <br />5. След като си отговорил на всички въпроси, натисни бутон "Аз съм?".</p>
+      <p className="quiz-steps">
+        1. Застани пред камерата, така че лицето ти да е в рамката и{" "}
+        <strong> да не е наклонено.</strong> <br />
+        2. Натисни бутон "Измерване". <br />
+        3. При поява на точки по лицето натисни бутон "Готов!". <br />
+        4. Започни с тестовите въпроси. <br />
+        5. След като си отговорил на всички въпроси, натисни бутон "Аз съм?".
+      </p>
       {isVideoVisible && ( // Conditionally render the video section
         <section className="video">
           <div>
-            <div style={{ position: 'relative' }}>
+            <div style={{ position: "relative" }}>
               <video
                 ref={videoRef}
                 autoPlay
@@ -255,7 +288,7 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
               <a className="quiz-button" onClick={measureFace}>
                 Измерване
               </a>
-              <a className='quiz-button' onClick={handleSubmit}>
+              <a className="quiz-button" onClick={handleSubmit}>
                 Готов!
               </a>
             </div>
@@ -264,6 +297,6 @@ const CameraQuestions = ({ onCalculateFinalResults }) => {
       )}
     </div>
   );
-}
+};
 
 export default CameraQuestions;

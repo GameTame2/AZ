@@ -1,7 +1,7 @@
 import { React, Suspense } from "react";
-import Website from './pages/Website.jsx';
-import Quiz from './pages/Quiz.jsx';
-import HorizontalScroll from './pages/HorizontalScroll.jsx';
+import Website from "./pages/Website.jsx";
+import Quiz from "./pages/Quiz.jsx";
+import HorizontalScroll from "./pages/HorizontalScroll.jsx";
 import ScrollSection from "./components/quiz/ScrollSection.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 
@@ -64,7 +64,7 @@ const router = createHashRouter([
   {
     path: "/about",
     element: <AboutUs />,
-  }
+  },
 ]);
 
 export default function App() {

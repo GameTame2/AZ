@@ -7,28 +7,31 @@ Source: https://sketchfab.com/3d-models/bob-ross-painting-00a57bbd1c894a7cb9e45e
 Title: Bob Ross painting
 */
 
-import { useFrame } from '@react-three/fiber'
-import { useGLTF } from '@react-three/drei'
-import { useRef } from 'react'
+import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
+import { useRef } from "react";
 
 export default function Painting(props) {
-  const { nodes, materials } = useGLTF('/painting.gltf')
+  const { nodes, materials } = useGLTF("/painting.gltf");
 
-  const groupRef = useRef()
-    
-      // Rotate the model continuously
-      useFrame(() => {
-        if (groupRef.current) {
-          groupRef.current.rotation.y += 0.01 // Adjust speed if needed
-        }
-      })
+  const groupRef = useRef();
 
+  // Rotate the model continuously
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.01; // Adjust speed if needed
+    }
+  });
 
   return (
     <group ref={groupRef} {...props} dispose={null}>
-      <mesh geometry={nodes.Object_4.geometry} material={materials.material_0} rotation={[Math.PI / 10, 0, 0]} />
+      <mesh
+        geometry={nodes.Object_4.geometry}
+        material={materials.material_0}
+        rotation={[Math.PI / 10, 0, 0]}
+      />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/painting.gltf')
+useGLTF.preload("/painting.gltf");

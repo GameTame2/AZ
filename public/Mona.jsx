@@ -7,20 +7,32 @@ Source: https://sketchfab.com/3d-models/painting-mona-lisa-ad8669b33719483fb719a
 Title: painting mona lisa
 */
 
-import React from 'react'
-import { useGLTF } from '@react-three/drei'
+import React from "react";
+import { useGLTF } from "@react-three/drei";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/mona.gltf')
+  const { nodes, materials } = useGLTF("/mona.gltf");
   return (
     <group {...props} dispose={null}>
       <group scale={[1, 4.068, 2.986]}>
-        <mesh geometry={nodes.Object_4.geometry} material={materials.Material} />
-        <mesh geometry={nodes.Object_5.geometry} material={materials['Material.001']} />
+        <mesh
+          geometry={nodes.Object_4.geometry}
+          material={materials.Material}
+        />
+        <mesh
+          geometry={nodes.Object_5.geometry}
+          material={materials["Material.001"]}
+        />
       </group>
-      <mesh geometry={nodes.Object_7.geometry} material={materials.BOLA_DE_MADERA_2} position={[0.31, 0, 0]} rotation={[Math.PI / 2, 0, Math.PI / 2]} scale={5.451} />
+      <mesh
+        geometry={nodes.Object_7.geometry}
+        material={materials.BOLA_DE_MADERA_2}
+        position={[0.31, 0, 0]}
+        rotation={[Math.PI / 2, 0, Math.PI / 2]}
+        scale={5.451}
+      />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/mona.gltf')
+useGLTF.preload("/mona.gltf");

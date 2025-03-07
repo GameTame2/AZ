@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function Man(props) {
-  const { nodes, materials } = useGLTF('/man.gltf');
+  const { nodes, materials } = useGLTF("/man.gltf");
   const groupRef = useRef();
 
   useFrame(() => {
@@ -16,11 +16,11 @@ export default function Man(props) {
     <group ref={groupRef} {...props} dispose={null}>
       <mesh
         geometry={nodes.Object_2.geometry}
-        material={materials['mat_0-RP_Man_Dennis_0263_dif.jpg']}
+        material={materials["mat_0-RP_Man_Dennis_0263_dif.jpg"]}
         rotation={[-Math.PI / 2, 0, 0]}
       />
     </group>
   );
 }
 
-useGLTF.preload('/man.gltf');
+useGLTF.preload("/man.gltf");

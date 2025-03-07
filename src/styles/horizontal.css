@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.story-first-left img{
+.story-first-left img {
   position: absolute;
   max-width: 50%;
   top: 50%;
@@ -34,7 +34,7 @@
   transform: translate(-50%, -50%);
 }
 
-.story-first-left canvas{
+.story-first-left canvas {
   width: 100%;
 }
 
@@ -55,7 +55,7 @@
 .reveal {
   padding-left: 30%;
   padding-right: 10%;
-  background-color: #2A2A2A;
+  background-color: #2a2a2a;
 }
 
 .story-first-right .reveal-text {
@@ -74,7 +74,7 @@
   margin-left: 30%;
   font-size: clamp(2rem, 2vw, 10rem);
   background-color: #e2e2e2;
-  color: #2A2A2A;
+  color: #2a2a2a;
   width: fit-content;
   padding: 5px 25px;
   border-radius: 25px;
@@ -82,15 +82,12 @@
 
 .story-cta a {
   text-decoration: none;
-  color: #2A2A2A;
+  color: #2a2a2a;
 }
-
 
 .spacing {
   height: 15vh;
 }
-
-
 
 @media screen and (max-width: 500px) {
   .reveal {

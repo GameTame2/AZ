@@ -14,14 +14,14 @@
 }
 
 .face-qs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5vh;
 }
 
-.face-qs h1{
+.face-qs h1 {
   margin-bottom: 0;
 }
 
@@ -54,8 +54,8 @@
 .form-button-container-in button {
   border: none;
   border-radius: 25%;
-  color: #374F2F;
-  background-color: #779C6C;
+  color: #374f2f;
+  background-color: #779c6c;
   height: 3rem;
   width: 3rem;
   font-size: 2rem;
@@ -70,39 +70,38 @@
 }
 
 .quiz-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    font-family: 'Alegreya Sans';
-  }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  font-family: "Alegreya Sans";
+}
 
-  .quiz-grid div:nth-child(odd){
-    background-color: #374F2F;
-    color: var(--white);
-  }
+.quiz-grid div:nth-child(odd) {
+  background-color: #374f2f;
+  color: var(--white);
+}
 
-  .quiz-grid div:nth-child(even){
-    background-color: #779C6C;
-  }
+.quiz-grid div:nth-child(even) {
+  background-color: #779c6c;
+}
 
-  .quiz-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--main-color);
-    font-size: 20px;
-    line-height: normal;
-    text-align: center;
-    border-radius: 5px;
-    padding: 2rem 1rem;
-  }
+.quiz-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color);
+  font-size: 20px;
+  line-height: normal;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2rem 1rem;
+}
 
-  .quiz-box p {
-    margin: 5px auto;
-  }
-
+.quiz-box p {
+  margin: 5px auto;
+}
 
 /*horizontal*/
 
@@ -119,7 +118,6 @@
   gap: 10vw;
   width: 2200vw;
   padding: 25vh 0;
-
 }
 
 .scroll-section {
@@ -185,7 +183,7 @@
 
 .images-wrapper {
   display: flex;
-  gap:7.5rem;
+  gap: 7.5rem;
 }
 
 .images-wrapper img {
@@ -199,7 +197,7 @@
   position: absolute;
   top: 10px;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   padding: 10px;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 1);
@@ -209,7 +207,7 @@
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   width: 70%;
   height: 25px;
   background-color: #ffffff; /* Background color of the progress bar container */
@@ -234,7 +232,7 @@
 }
 
 .jobmodel canvas {
-  height: 100vh;
+  height: 70vh;
 }
 
 .arth1 {
@@ -263,7 +261,6 @@
   top: 30%;
 }
 
-
 @media screen and (max-width: 900px) {
   .arth1 {
     font-size: 7.5rem;
@@ -278,7 +275,7 @@
     height: 50vh;
   }
 
-  .images-wrapper{
+  .images-wrapper {
     gap: 5rem;
   }
 

@@ -22,12 +22,18 @@ function Quiz() {
     <>
       <header className="quiz-header">
         <a href="/">
-          <img src="/images/Face_logo_black.png" alt="logo" className="quiz-logo"/>
+          <img
+            src="/images/Face_logo_black.png"
+            alt="logo"
+            className="quiz-logo"
+          />
         </a>
       </header>
 
       {/* Hide camera questions when test questions are shown */}
-      {!showTestQuestions && <CameraQuestions onCalculateFinalResults={handleFinalResults} />}
+      {!showTestQuestions && (
+        <CameraQuestions onCalculateFinalResults={handleFinalResults} />
+      )}
 
       <div className="quiz-container">
         <div className="quiz-headings-container">
@@ -39,7 +45,10 @@ function Quiz() {
         </div>
 
         {showTestQuestions && (
-          <ScrollSection onCalculateFinalResults={handleFinalResults} allResults={result}/>
+          <ScrollSection
+            onCalculateFinalResults={handleFinalResults}
+            allResults={result}
+          />
         )}
       </div>
     </>

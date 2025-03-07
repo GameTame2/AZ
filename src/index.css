@@ -1,21 +1,26 @@
 :root {
-    --main-color: #172324;
-    --body-color: #EBE6CF;
-    --box-color: #DED7B8;
-    --white: #FFF;
+  --main-color: #172324;
+  --body-color: #ebe6cf;
+  --box-color: #ded7b8;
+  --white: #fff;
 }
 
-
 body {
-    cursor: url('img/cursor.png') 5 5, auto;
-    overflow-x: hidden;
+  cursor: url("img/cursor.png") 5 5, auto;
+  overflow-x: hidden;
 }
 
 @font-face {
-    font-family: 'New';
-    src: url(./fonts/MDGROTESQUE-Regular.ttf);
+  font-family: "New";
+  src: url(./fonts/MDGROTESQUE-Regular.ttf);
 }
 
-a, button, [role="button"], input[type="submit"], input[type="button"], input[type="radio"], label {
-    cursor: url('img/hand.png'), pointer;
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="radio"],
+label {
+  cursor: url("img/hand.png"), pointer;
 }
