@@ -150,6 +150,7 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
 
   return (
     <section className="scroll-section-outer">
+      
       <div ref={triggerRef} className="scroll-section-middle">
         <div ref={sectionRef} className="scroll-section-inner">
           {quizData.map((item) => (
@@ -195,7 +196,6 @@ function ScrollSection({ onCalculateFinalResults = () => {}, allResults = {}}) {
       <div className="result-message">
         {finalResultMessage.map((talent) => (
           <div key={talent}>
-            <h2>{talent}</h2>
             {componentMap[talent] && React.createElement(componentMap[talent])}
           </div>
         ))}
