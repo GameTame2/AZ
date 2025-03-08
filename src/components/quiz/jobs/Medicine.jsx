@@ -1,7 +1,6 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Pills from "../../../../public/Pills";
+import React from "react";
 import "../../../styles/quiz.css";
+
 
 const Medicine = () => {
   return (
@@ -16,12 +15,7 @@ const Medicine = () => {
           лекар, готов да помага на хората да водят здравословен и щастлив
           живот! 🩺💉{" "}
         </div>
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Pills position={[0, -3, -10]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/surgeon.jpeg" alt="surgeon" />
       </div>
     </div>
   );

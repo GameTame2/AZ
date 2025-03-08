@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Skull from "../../../../public/Skull";
+import React from "react";
 import "../../../styles/quiz.css";
 
+
 const Biology = () => {
+
   return (
     <div className="job bio">
       <div className="jobmodel">
@@ -16,12 +16,7 @@ const Biology = () => {
           знания за света около нас. Твоята любознателност и аналитично мислене
           те правят роден учен! 🧬🌱
         </div>
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Skull scale={1.5} position={[0, -0.5, 1]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/biologist.jpeg" alt="biologist" />
       </div>
     </div>
   );

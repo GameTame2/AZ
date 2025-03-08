@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Painting from "../../../../public/Painting";
+import React from "react";
 import "../../../styles/quiz.css";
 
+
 const Art = () => {
+
   return (
     <div className="job art">
       <div className="jobmodel">
@@ -17,12 +17,7 @@ const Art = () => {
           вдъхновява и докосва хората! 🎨✨
         </div>
 
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Painting scale={35} position={[0, -3, -10]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/artist.jpg" alt="artist" />
       </div>
     </div>
   );

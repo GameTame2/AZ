@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Books from "../../../../public/Books";
+import React from "react";
 import "../../../styles/quiz.css";
 
+
 const Ped = () => {
+  
   return (
     <div className="job ped">
       <div className="jobmodel">
@@ -16,12 +16,7 @@ const Ped = () => {
           те правят истински педагог, готов да изгражда бъдещето чрез
           образование! 📚👩‍🏫{" "}
         </div>
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Books scale={1.2} position={[0, -15, -100]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/teacher.jpg" alt="teacher" />
       </div>
     </div>
   );

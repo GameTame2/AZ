@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import King from "../../../../public/King";
+import React from "react";
 import "../../../styles/quiz.css";
 
+
 const History = () => {
+  
   return (
     <div className="job art">
       <div className="jobmodel">
@@ -15,12 +15,7 @@ const History = () => {
           внимание към детайлите и аналитично мислене те правят истински
           историк, готов да открие скритите уроци на човечеството! 📚🏺{" "}
         </div>
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <King scale={10} position={[0, -1.5, 0]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/historian.jpg" alt="historian" />
       </div>
     </div>
   );

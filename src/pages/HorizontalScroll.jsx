@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import Man from "../../public/Man";
+import Man from "../components/3d/Man";
 import TextReveal from "../components/horizontal/TextReveal";
 import { Link } from "react-router-dom";
 import "../styles/horizontal.css";

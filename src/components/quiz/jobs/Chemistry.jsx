@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Chem from "../../../../public/Chem";
+import React from "react";
 import "../../../styles/quiz.css";
 
 const Chemistry = () => {
+
   return (
     <div className="job art">
       <div className="jobmodel">
@@ -15,13 +14,8 @@ const Chemistry = () => {
           скритите закони на природата. Твоето логическо мислене и любопитство
           те правят истински учен, готов да разгадае тайните на материята! ⚗️🔬{" "}
         </div>
+      <img className="jobimg" src="/images/chemist.jpg" alt="chemist" />
       </div>
-      <Canvas>
-        <ambientLight />
-        <Suspense fallback={null}>
-          <Chem position={[0, -1, 0]} />
-        </Suspense>
-      </Canvas>
     </div>
   );
 };

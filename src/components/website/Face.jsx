@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Link } from "react-router-dom";
-import Man from '../../../public/Man';
+import Man from '../3d/Man';
 import '../../styles/website.css';
 
 function Face() {

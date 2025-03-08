@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Globe from "../../../../public/Globe";
+import React from "react";
 import "../../../styles/quiz.css";
 
+
 const Geography = () => {
+
   return (
     <div className="job geo">
       <div className="jobmodel">
@@ -16,12 +16,7 @@ const Geography = () => {
           картите ти се струват като втора природа. Твоето усещане за ориентация
           и интересът ти към света те правят истински изследовател! 🌍
         </div>
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Globe scale={20} position={[0, -1, 0]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/geographer.jpg" alt="geographer" />
       </div>
     </div>
   );

@@ -147,7 +147,6 @@ function ScrollSection({
 
   return (
     <section className="scroll-section-outer">
-      <Geography />
       <div ref={triggerRef} className="scroll-section-middle">
         <div ref={sectionRef} className="scroll-section-inner">
           {quizData.map((item) => (

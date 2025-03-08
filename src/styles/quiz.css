@@ -235,6 +235,11 @@
   height: 70vh;
 }
 
+.jobimg {
+  width: 60vw;
+  margin-top: 1rem;
+}
+
 .arth1 {
   font-size: 15rem;
 }
@@ -273,6 +278,10 @@
 
   .jobmodel canvas {
     height: 50vh;
+  }
+
+  .jobimg {
+    width: 80vw;
   }
 
   .images-wrapper {

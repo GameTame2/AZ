@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import Coordinate from "../../../../public/Coordinate";
+import React from "react";
 import "../../../styles/quiz.css";
 
 const Math = () => {
+
   return (
     <div className="job art">
       <div className="jobmodel">
@@ -16,12 +15,7 @@ const Math = () => {
           истински математик, готов да открие нови формули за успех! ➗🔢{" "}
         </div>
 
-        <Canvas>
-          <ambientLight />
-          <Suspense fallback={null}>
-            <Coordinate position={[0, -1, 1]} />
-          </Suspense>
-        </Canvas>
+        <img className="jobimg" src="/images/mathematician.jpg" alt="mathematician" />
       </div>
     </div>
   );
